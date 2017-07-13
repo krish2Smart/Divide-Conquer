@@ -1,0 +1,47 @@
+@CHARSET "ISO-8859-1";
+
+#change-username {
+	padding-top : 7%;
+	padding-left : 350px;
+	overflow : auto;
+	width : 700px;
+	float : left;
+}
+
+
+#username-sub {
+	color : white;
+	background : #eb4640;
+	margin-left : 40%;
+	margin-bottom : 25px;
+	height : 30px;
+	width : 150px;
+	border : 0px;
+}
+
+.textbox {
+	width : 500px;
+	height : 30px;
+	margin-top : 30px;
+	display : block;
+	margin-left : 15%;
+	margin-bottom : 30px;
+}
+
+.border {
+	border-bottom : 5px groove #eb4640;
+	width : 700px;
+	margin-bottom : 20px;
+}
+
+.title {
+	padding-bottom : 20px;
+	font-size : 30px;
+	color : #eb4640; 
+	text-align : center;
+}
+
+#error-message {
+	text-align : center;
+	padding-bottom : 10px;
+}

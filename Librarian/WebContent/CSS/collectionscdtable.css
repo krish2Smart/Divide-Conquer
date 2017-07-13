@@ -1,0 +1,48 @@
+@CHARSET "ISO-8859-1";
+
+#collections-cdtable {
+	padding-top : 10%;
+	margin-left : 350px;
+	overflow : auto;
+	width : 700px;
+	float : left;
+}
+
+#collections-cdtable .content-holder {
+	margin-left : 14%;
+	padding-bottom : 20px;
+}
+
+#collections-cdtable-upld {
+	background : #eb4640;
+	color : white;
+	width : 100px;
+	border : 0px;
+	margin-top : 20px;
+	margin-left : 190px;
+}
+
+.cd-form {
+	width : 500px;
+	height : 30px;
+	margin-top : 20px;
+	display : block;
+}
+
+.border {
+	border-bottom : 5px groove #eb4640;
+	width : 700px;
+	margin-bottom : 20px;
+}
+
+.title {
+	padding-bottom : 20px;
+	font-size : 30px;
+	color : #eb4640; 
+	text-align : center;
+}
+
+#error-message {
+	padding-top : 10px;
+	padding-left : 180px;
+}

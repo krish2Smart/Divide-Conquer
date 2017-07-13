@@ -1,0 +1,47 @@
+@CHARSET "ISO-8859-1";
+
+#e-journals {
+	padding-top : 10%;
+	padding-left : 350px;
+	overflow : auto;
+	width : 700px;
+	float : left;
+}
+
+#e-journals #content-holder {
+	padding-left : 14%;
+	padding-bottom : 20px;
+}
+
+#e-journals-upld {
+	background : #eb4640;
+	color : white;
+	width : 100px;
+	border : 0px;
+	margin-left : 190px;
+}
+
+.cd-form {
+	width : 500px;
+	height : 30px;
+	margin-top : 20px;
+	display : block;
+}
+
+.border {
+	border-bottom : 5px groove #eb4640;
+	width : 700px;
+	margin-bottom : 20px;
+}
+
+.title {
+	padding-bottom : 20px;
+	font-size : 30px;
+	color : #eb4640; 
+	text-align : center;
+}
+
+#error-message {
+	padding-top : 10px;
+	padding-left : 180px;
+}

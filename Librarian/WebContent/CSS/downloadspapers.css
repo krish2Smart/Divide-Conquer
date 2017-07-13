@@ -1,0 +1,56 @@
+@CHARSET "ISO-8859-1";
+
+#downloads-papers {
+	padding-top : 7%;
+	padding-left : 350px;
+	overflow : auto;
+	width : 700px;
+	float : left;
+}
+
+
+#downloads-papers-upld {
+	color : white;
+	background : #eb4640;
+	margin-left : 43%;
+	margin-bottom : 25px;
+	height : 30px;
+	width : 100px;
+	border : 0px;
+}
+
+.textbox {
+	width : 500px;
+	height : 30px;
+	margin-top : 30px;
+	display : block;
+	margin-left : 15%;
+	margin-bottom : 30px;
+}
+
+#downloads-papers-file {
+	color : #eb4640;
+	margin-left : 38%;
+	margin-bottom : 40px;
+	height : 40px;
+	width : 400px;
+	border : 0px;
+}
+
+.border {
+	border-bottom : 5px groove #eb4640;
+	width : 700px;
+	margin-bottom : 20px;
+}
+
+.title {
+	padding-bottom : 20px;
+	font-size : 30px;
+	color : #eb4640; 
+	text-align : center;
+}
+
+#error-message {
+	text-align : center;
+	padding-bottom : 10px;
+}

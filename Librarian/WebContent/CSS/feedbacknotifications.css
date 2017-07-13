@@ -1,0 +1,115 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	margin : 0px;
+	padding : 0px;
+}
+
+#shownotifications {
+	padding-left : 350px;
+	overflow : auto;
+	width : 700px;
+	float : left;
+}
+
+.no-notifications {
+	text-align : center;
+}
+
+.notifications {
+	color : white;
+}
+
+.notifications table {
+	width : 700px;
+	border-collapse : collapse;
+}
+
+.space {
+	padding-top : 20px;
+}
+
+.notification-tbl a {
+	text-decoration : line;
+}
+
+.feedback-content {
+	overflow : auto;
+	background : white;
+	color : black; 
+	margin-top : 0px;
+}
+
+.notifications ul {
+	padding-left : 0px;
+}
+
+.notifications li {
+	display : block;
+	padding-right : 10px;
+	float : left;
+}
+
+.notifications li:first-child {
+	padding-left : 20px;
+}
+
+.notifications li:nth-child(3), notifications li:nth-child(4) {
+	float : right;
+}
+
+.feedback-content p, notifications ul {
+	margin : 0px;
+}
+
+.notification-tbl td:first-child {
+	padding-left : 20px;
+}
+
+.notification-tbl tr:nth-child(odd) {
+	background : #eb4640;
+}
+
+.notification-tbl tr:nth-child(odd) a {
+	color : white;
+}
+
+.notification-tbl tr:nth-child(even) {
+	background : white;
+	color : black;
+}
+
+.notification-tbl tr:nth-child(even) a {
+	color : black;
+}
+
+#feedback {
+	text-indent : 1.5em;
+	padding-top : 20px;
+	padding-left : 20px;
+	padding-right : 20px;
+}
+
+.delete-icon {
+	background : url('../Icons/delete.png') no-repeat;
+	padding-top : 15px;
+	padding-bottom : 15px;
+	padding-right : 20px;
+	width: 30px;
+	height: 30px;
+	display: block;
+	float : right;
+}
+
+.content-holder {
+	margin-top : 5%;
+	font-size : 30px;
+	color : #eb4640; 
+	text-align : center;
+}
+
+.border {
+	border-bottom : 5px groove #eb4640;
+	width : 700px;
+	padding-top : 20px;
+}

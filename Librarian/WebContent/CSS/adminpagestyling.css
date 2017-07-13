@@ -1,0 +1,53 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	margin : 0px;
+	padding : 0px;
+}
+
+.navbar {
+	background : #eb4640;
+	position : fixed;
+	height : 100vh;
+	width : 200px;
+	margin : 0px;
+	padding : 0px;
+	float : left;
+}
+
+.navbar ul {
+	margin : 0px;
+	list-style-type: none;
+}
+
+.navbar ul li {
+	padding-top : 20px;
+	padding-bottom : 20px;
+}
+
+.navbar ul li a {
+	color : #ffffff;
+	text-decoration : none;
+	font-size : 21px;	
+}
+
+#navbar-set {
+	float : left;
+	width : 150px;
+	margin-top : 30px;
+	margin-left : 100px;
+}
+
+#navbar-set input {
+	background : #eb4640;
+	border : 0px;
+	color : #ffffff;
+	height : 25px;
+	margin-right : 3px;
+}
+
+#error-message {
+	display : none;
+	color : #eb4640;
+}
+

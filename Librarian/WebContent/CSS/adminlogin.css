@@ -1,0 +1,50 @@
+@CHARSET "ISO-8859-1";
+
+.form-container {
+	padding-left : 30%;
+	padding-right : 30%;
+	width : 500px;
+}
+
+.title {
+	text-align : center;
+	font-size : 30px;
+	color : #eb4640;
+}
+
+.form {
+	padding-top : 20px;
+	padding-left : 20%;
+}
+
+#login-btn {
+	margin-left : 30%;
+	background : #eb4640;
+	border : 0px;
+	color : white;
+}
+
+.border {
+	border-bottom : 5px groove #eb4640;
+	padding-top : 10px;
+}
+
+.form td:last-child {
+	padding-left : 20px;
+}
+
+.form td {
+	padding-bottom : 10px;
+}
+
+.form input[type="text"],.form input[type="password"] {
+	width : 200px;
+	height : 20px;
+}
+
+#error-message {
+	padding-left : 70px;
+	padding-bottom : 10px;
+	display : none;
+	color : #eb4640;
+}
