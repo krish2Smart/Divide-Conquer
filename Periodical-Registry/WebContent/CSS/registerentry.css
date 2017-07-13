@@ -1,0 +1,54 @@
+@CHARSET "ISO-8859-1";
+
+#entry-details-holder {
+	padding-left : 15%;
+}
+
+#entry-details-holder table th {
+	padding-top : 30px;
+	padding-left : 30px;
+	padding-right : 30px;
+	padding-bottom : 0px;
+}
+
+#entry-details-holder table td {
+	padding-top : 30px;
+	padding-bottom : 0px;
+}
+
+.add-btn {
+	background : transparent;
+	color : #34495E;
+	width : 120px;
+	height : 30px;
+	border : 1px dashed #641E16;
+	margin-top : 20px; 
+}
+
+.add-btn:hover {
+	width : 170px;
+	height : 40px;
+}
+
+#entry-details-add-volno {
+	width : 50px;
+}
+
+#entry-details-add-issueno {
+	width : 70px;
+}
+
+#entry-details-add-publicationdate {
+	width : 150px;
+}
+
+#entry-details-add-dateofreceipt {
+	width : 150px;
+}
+
+#error-message-2 {
+	display : none;
+	color : #eb4640;
+	font-size : 15px;
+	padding : 15px;
+}

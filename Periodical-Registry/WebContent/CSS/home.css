@@ -1,0 +1,25 @@
+@CHARSET "ISO-8859-1";
+
+#home table {
+	padding-left : 100px;
+}
+
+#home table th {
+	padding-left : 30px;
+	padding-right : 30px;
+}
+
+#home table td {
+	padding-top : 30px;
+	padding-bottom : 0px;
+}
+
+.renewal-btn {
+	background : transparent;
+	width : 65px;
+	height : 25px;
+	border : 0px;
+	background : #D36F1E;
+	border-radius : 6%;
+	color : #ffffff;
+}

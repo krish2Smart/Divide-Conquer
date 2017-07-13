@@ -1,0 +1,66 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	width : 1335px;
+	height : auto;
+	margin : 0px;
+	padding : 0px;
+}
+
+#header-div {
+	margin : 0px;
+	padding : 0px;
+}
+
+.kce-logo {
+	height : 120px;
+	width : 380px;
+	margin : 0px;
+	padding : 0px;
+}
+
+#login-div {
+	background-image : url("../Images/bg2.JPG");
+	background-repeat : no-repeat;
+	background-size : 1366px 659px;
+	margin : 0px;
+	height : 659px;
+	width : 1366px;
+}
+
+#login-form {
+	margin-left : 900px;
+	margin-top : 200px;
+	margin-right : 90px;
+	padding-bottom : 20px;
+	padding-left : 30px;
+	padding-top : 20px;
+	border-radius : 20%;
+	background: rgba(14, 25, 25, .75);
+}
+
+input {
+    background:transparent;
+    border : 0px;
+    border-bottom : 1px solid white;
+    width : 300px;
+    height : 30px;
+    font-size : 20px;
+    color :  white;
+	margin-bottom : 10px;
+}
+
+#error-message {
+	text-align : center;
+	color : white;
+}
+
+input[type=submit] {
+    background : brown;
+    border : 0px;
+    width : 300px;
+    height : 30px;
+    font-size : 20px;
+    color : #AAB7AD;
+}
+

@@ -1,0 +1,178 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	margin : 0px;
+	width : 1366px;
+	height : auto;
+	background : #B9CCF4;
+	color : #34495E;
+}
+
+.label-top {
+	padding : 30px;
+}
+
+img {
+	margin : 0px;
+}
+
+.department {
+	width : 350px;
+}
+
+#heading {
+	color : white;
+	font-size : 30px;
+	padding : 15px;
+}
+
+#sub-heading {
+	color : white;
+	font-size : 23;
+	padding : 30px;
+}
+
+#message {
+	padding : 30px;
+}
+
+#error-message {
+	display : none;
+	color : #eb4640;
+	font-size : 20px;
+	padding : 15px;
+}
+
+header {
+	display : block;
+	margin : 0px;
+	background : #ffffff;
+	color : black;
+}
+
+header ul {
+	margin : 0px;
+	overflow : hidden;	
+}
+
+header ul li {
+	list-style-type : none;
+	float : left;
+}
+
+.kce-logo {
+	height : 150px;
+	width : 600px;
+	margin : 0px;
+	padding : 0px;
+	padding-left : 18%;
+}
+
+header #title {
+	padding-top : 40px;
+}
+
+header #title h1 {
+	margin : 0px;
+	text-align : center;
+	width : 400px;
+	color : #1b213a;
+}
+
+nav ul {
+	width : 100%;
+	list-style-type : none;
+	margin : 0px;
+	padding : 0px;
+	overflow : hidden;
+	background : #566573;
+}
+
+nav li {
+	float : left;
+	text-align : center;
+}
+
+nav li a {
+	display : block;
+	text-decoration : none;
+	text-align : center;
+	padding : 15px 40px;
+	color : #ffffff;
+}
+
+nav li:nth-child(5), nav li:last-child {
+	float : right;
+}
+
+nav li a.active {
+    background-color: #D36F1E;
+    color: white;
+}
+
+nav li a:hover.inactive {
+	background : #111;
+}
+
+section {
+	margin-left : 40px;
+	margin-top : 30px;
+	display : block;
+	text-align : center;
+}
+
+section td {
+	padding-top : 50px;
+	padding-left : 15px;
+	text-align : center;
+}
+
+section td:nth-child(2) {
+	padding-left : 50px;
+}
+
+section label {
+	font-size : 20px;
+}
+
+section input[type="text"], section input[type="password"] {
+	border : 0px;
+	border-bottom : 1px dashed #641E16;
+	background : transparent;
+	font-size : 17px;
+	width : 300px;
+	color : #34495E;
+}
+
+section select {
+ 	background : transparent;
+	border : 1px dashed #641E16;
+	font-size : 17px;
+	width : 200px;
+	color : #34495E;
+}
+
+section textarea {
+	background : transparent;
+	border : 0px;
+	border-bottom : 1px dashed #641E16;
+	font-size : 17px;
+	width : 250px;
+	height : 100px;
+	color : #34495E;
+}
+
+.submit-btn {
+	background : transparent;
+	width : 100px;
+	height : 40px;
+	border : 0px;
+	background : #D36F1E;
+	border-radius : 6%;
+	color : #ffffff;
+	margin : 20px;
+}
+
+footer {
+	padding-bottom : 100px;
+}
