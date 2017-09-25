@@ -111,7 +111,10 @@ public class AdminPage extends HttpServlet {
 				} else if(option.equals("Downloads")) {
 					out.println("<title>Downloads | Librarian</title>");
 					out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"CSS/downloads.css\">");
-				} else if(option.equals("Downloads/Papers")) {
+				} else if(option.equals("Downloads/Faculty")) {
+					out.println("<title>Downloads/Faculty | Librarian</title>");
+					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/downloadsfaculty.css\">");
+				}  else if(option.equals("Downloads/Papers")) {
 					out.println("<title>Downloads/Papers | Librarian</title>");
 					out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"CSS/downloadspapers.css\">");
 				} else if(option.equals("Downloads/Forms")) {
@@ -135,6 +138,9 @@ public class AdminPage extends HttpServlet {
 				} else if(option.equals("Free-E-Resources/Free-Newspapers")) {
 					out.println("<title>Free E-Resources/Free Newspapers | Librarian</title>");
 					out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"CSS/freenewspapers.css\">");
+				} else if(option.equals("change-home-content")) {
+					out.println("<title>Change home content | Librarian</title>");
+					out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"CSS/changehomecontent.css\">");
 				} else if(option.equals("change-username")) {
 					out.println("<title>Change username | Librarian</title>");
 					out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"CSS/changeusername.css\">");
@@ -417,12 +423,14 @@ public class AdminPage extends HttpServlet {
 					out.println("<div id=\"downloads\">");
 						out.println("<div class=\"title\">Downloads</div>");
 						out.println("<div class=\"border\"></div>");
-						out.println("<input type=\"button\" value=\"Faculty Paper Publication\" id=\"downloads-papers-btn\" class=\"btn\">");
+						out.println("<input type=\"button\" value=\"Faculty Paper Publication\" id=\"downloads-faculty-btn\" class=\"btn\">");
 						out.println("<input type=\"button\" value=\"Forms\" id=\"downloads-forms-btn\" class=\"btn\">");
 						out.println("<div class=\"border\"></div>");
 					out.println("</div>");
-				} else if(option.equals("Downloads/Papers")) { 
-					out.println("<div id=\"downloads-papers\" >");
+				} else if(option.equals("Downloads/Faculty")) {
+					out.println("<div id = \"downloads-faculty\"></div>");
+				} else if(option.equals("Downloads/Papers")) {
+					out.println("<div id=\"downloads-papers\">");
 						out.println("<div class=\"title\">Downloads-Papers</div>");
 						out.println("<div class=\"border\"></div>");
 						out.println("<input type=\"text\" id=\"downloads-papers-staffname\" placeholder=\"Enter the staff name\" class=\"textbox\" />");
@@ -515,6 +523,7 @@ public class AdminPage extends HttpServlet {
 							out.println("<div class=\"title\">Settings</div>");
 							out.println("<div class=\"border\"></div>");
 							out.println("<ul>");
+								out.println("<li><input type=\"button\" value=\"Change Home Content\" id=\"change-home-content-btn\" class=\"btn\"></li>");
 								out.println("<li><input type=\"button\" value=\"Change Username\" id=\"changeuser-btn\" class=\"btn\"></li>");
 								out.println("<li><input type=\"button\" value=\"Change Password\" id=\"changepass-btn\" class=\"btn\"></li>");
 								out.println("<li><input type=\"button\" value=\"Add Department\" id=\"add-department-btn\" class=\"btn\"></li>");
@@ -522,6 +531,15 @@ public class AdminPage extends HttpServlet {
 							out.println("</ul>");
 							out.println("<div class=\"border\"></div>");
 						out.println("</div>");
+				} else if(option.equals("change-home-content")) {
+					out.println("<div id = \"change-home-content\">");
+						out.println("<div class = \"title\">Change Home Content</div>");
+						out.println("<div class = \"border\"></div>");
+						out.println("<textarea id = \"content\" placeholder = \"Enter Home Content to Update\"></textarea>");
+						out.println("<div id='error-message'></div>");
+						out.println("<input type = \"button\" id = \"change-home-content-sub\" value = \"Update\">");
+						out.println("<div class = \"border\"></div>");
+					out.println("</div>");
 				} else if(option.equals("change-username")) {
 					out.println("<div id=\"change-username\">");
 						out.println("<div class=\"title\">Change Username</div>");
