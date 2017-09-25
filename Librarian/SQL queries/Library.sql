@@ -13,15 +13,7 @@ ADMIN Login
 
 	insert into adminlogin values ("admin", "admin");
 
-pdf:		
 
-Departments
+	
 
-	create table bedepartments(id int not null auto_increment, name varchar(256) not null, primary key(id, name));
-
-	insert into bedepartments (name) values ("MECHANICAL ENGINEERING"), ("ELECTRICAL & ELECTRONICS ENGINEERING"), ("ELECTRONICS & COMMUNICATION ENGINEERING"), ("COMPUTER SCIENCE & ENGINEERING"), ("INFORMATION TECHNOLOGY"), ("CIVIL ENGINEERING"), ("ELECTRONICS & INSTRUMENTATION ENGINEERING"), ("AUTOMOBILE ENGINEERING"), ("ELECTRONICS & TELECOMMUNICATION ENGINEERING");
-
-	create table medepartments(id int not null auto_increment, name varchar(256) not null, primary key(id, name));
-
-	insert into medepartments (name) values ("MECHATRONICS (M.E)"), ("COMMUNICATION SYSTEM (M.E)"), ("V.L.S.I (M.E)");
 
