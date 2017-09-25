@@ -20,19 +20,19 @@ img {
 	width : 350px;
 }
 
-#heading {
+.heading {
 	color : white;
 	font-size : 30px;
 	padding : 15px;
 }
 
-#sub-heading {
+.sub-heading {
 	color : white;
 	font-size : 23;
 	padding : 30px;
 }
 
-#message {
+.message {
 	padding : 30px;
 }
 

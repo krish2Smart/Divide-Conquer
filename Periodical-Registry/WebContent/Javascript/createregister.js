@@ -175,8 +175,18 @@ function setActive() {
 }
 
 function loadUsers() {
+	AJAXRequest("GetDepartments", updateDepartment);
 	var sub = document.getElementById(renderHTML["create-register"]["actionurl"]+"-sub");
 	sub.addEventListener("click", renderHTML["create-register"]["action"]);
+}
+
+function updateDepartment(datas) {
+	var department = document.getElementsByClassName("department");
+	var dropDownList = "<option>Select</option>";
+	for (i = 0; i < datas.length; i++) {
+		dropDownList += "<option>"+datas[i]+"</option>";
+	}
+	department[0].innerHTML = dropDownList;
 }
 
 function registerCreated(datas) {

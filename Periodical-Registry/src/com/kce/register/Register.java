@@ -33,8 +33,6 @@ public class Register extends HttpServlet {
 		try(PrintWriter out = response.getWriter()) {
 			out.println("<html>");
 			out.println("<head>");
-				out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/register.css\">");
-				out.println("<script type = \"text/javascript\" src = \"Javascript/register.js\"></script>");
 				if(option.equals("Home")) {
 					out.println("<script type = \"text/javascript\" src = \"Javascript/home.js\"></script>");
 					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/home.css\">");
@@ -51,6 +49,8 @@ public class Register extends HttpServlet {
 					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/renewaldates.css\">");
 					out.println("<title>Renewal Dates | Periodical Register</title>");
 				}
+				out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/register.css\">");
+				out.println("<script type = \"text/javascript\" src = \"Javascript/register.js\"></script>");
 			out.println("</head>");
 			out.println("<body>");
 			request.getRequestDispatcher("header.html").include(request, response);
@@ -59,11 +59,11 @@ public class Register extends HttpServlet {
 			if(option.equals("Home")) {
 				out.println("<div id = \"home\">");
 					out.println("<div id = \"renewal-dates-remainder\">"
-									+ "<div id = \"heading\">Renewal Dates - Remainder</div>"
+									+ "<div class = \"heading\">Renewal Dates - Remainder</div>"
 									+ "<div id = \"renewal-dates-remainder-content-holder\"></div>"
 								+ "</div>");
 					out.println("<div id = \"register-entry-remainder\">"
-									+ "<div id = \"heading\">Register Entry - Remainder</div>"
+									+ "<div class = \"heading\">Register Entry - Remainder</div>"
 									+ "<div id = \"register-entry-remainder-content-holder\">"
 										+ "<div id = \"remainder-weekly\"></div>"
 										+ "<div id = \"remainder-fortnightly\"></div>"

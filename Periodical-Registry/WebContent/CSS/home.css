@@ -14,7 +14,7 @@
 	padding-bottom : 0px;
 }
 
-.renewal-btn {
+.renewal-btn, .entry-btn {
 	background : transparent;
 	width : 65px;
 	height : 25px;

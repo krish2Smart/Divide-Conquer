@@ -69,16 +69,5 @@ function loadEvents() {
 			alert("code in process");
 		});
 	}
-	if(document.getElementsByClassName("department") !== null) {
-		AJAXRequest("GetDepartments", updateDepartment);
-	}
 }
 
-function updateDepartment(datas) {
-	var department = document.getElementsByClassName("department");
-	var dropDownList = "<option>Select</option>";
-	for (i = 0; i < datas.length; i++) {
-		dropDownList += "<option>"+datas[i]+"</option>";
-	}
-	department[0].innerHTML = dropDownList;
-}

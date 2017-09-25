@@ -131,78 +131,90 @@ function setId(data) {
 }
 
 function showRegisterEntryDetails(datas) {
-	var elem = document.getElementById("entry-details-holder");
-	var content = "<table>";
-	content += "<tr><th>Sl.No</th><th>VOL No.</th><th>ISSUE No.</th><th>PUBLICATION DATE</th><th>DATE OF RECEIPT IN THE LIBRARY</th></tr>";
-	var i, j;
-	if(!(datas == "error")) {
+	if(datas.code == 0) {
+		if(document.getElementById("error-message-2") !== null)
+			diplayErrMsg2(datas);
+	} else {
+		var elem = document.getElementById("entry-details-holder");
+		var content = "<table>";
+		content += "<tr><th>Sl.No</th><th>VOL No.</th><th>ISSUE No.</th><th>PUBLICATION DATE</th><th>DATE OF RECEIPT IN THE LIBRARY</th></tr>";
+		var i, j;
 		for(i = 0, j = 1; i < datas.length; i++, j++) {
 			content += "<tr><td>"+j+"</td><td>"+datas[i].volumeNo+"</td><td>"+datas[i].issueNo+"</td><td>"+datas[i].publicationDate+"</td><td>"+datas[i].dateOfReceipt+"</td></tr>";
 		}
-	}
-	content += "<tr id = \"add-row\"></tr>";
-	content += "</table>";
-	elem.innerHTML = content;
-	elem = document.getElementById("entry-details-holder-add");
-	var addBtn = "<input type = \"submit\" id = \"entry-details-add\" value = \"Add Entry+\" class = \"add-btn\">";
-	addBtn += "<input type = \"submit\" id = \"entry-details-addentry\" value = \"Register Entry+\" class = \"add-btn\">";
-	addBtn += "<div id = \"error-message-2\"></div>";
-	elem.innerHTML = addBtn;
-	elem = document.getElementById("entry-details-addentry");
-	elem.style.display = "none";
-	content = null;
-	var entryBtn = document.getElementById("entry-details-add");
-	entryBtn.addEventListener("click", function() {
-		entryBtn.style.display = "none";
-		content = "<td>"+j+"</td>" +
-				"<td><input type = \"text\" id = \"entry-details-add-volno\" placeholder = \"Vol No.\"></td>" +
-				"<td><input type = \"text\" id = \"entry-details-add-issueno\" placeholder = \"Issue No.\"></td>" +
-				"<td><input type = \"text\" id = \"entry-details-add-publicationdate\" placeholder = \"Publication Date\" class = \"row-input\"></td>" +
-				"<td><input type = \"text\" id = \"entry-details-add-dateofreceipt\" placeholder = \"DD-MM-YYYY\" class = \"row-input\"></td>";
-		elem = document.getElementById("add-row");
+		content += "<tr id = \"add-row\"></tr>";
+		content += "</table>";
 		elem.innerHTML = content;
+		elem = document.getElementById("entry-details-holder-add");
+		var addBtn = "<input type = \"submit\" id = \"entry-details-add\" value = \"Add Entry+\" class = \"add-btn\">";
+		addBtn += "<input type = \"submit\" id = \"entry-details-addentry\" value = \"Register Entry+\" class = \"add-btn\">";
+		addBtn += "<div id = \"error-message-2\"></div>";
+		elem.innerHTML = addBtn;
 		elem = document.getElementById("entry-details-addentry");
-		elem.style.display = "inline-block";
-		elem.addEventListener("click", function() {
-			var volumeNo = document.getElementById("entry-details-add-volno").value, volumeNo_flag = 1;
-			var issueNo = document.getElementById("entry-details-add-issueno").value, issueNo_flag = 1;
-			var publicationDate = document.getElementById("entry-details-add-publicationdate").value, publicationDate_flag = 1;
-			var dateOfReceipt = document.getElementById("entry-details-add-dateofreceipt").value, dateOfReceipt_flag = 0, dateOfReceipt_regex = /^(([0-9]{2})-([0-9]{2})-[0-9]{4})$/;
-			var errMsg = document.getElementById("error-message-2");
-			
-			if(dateOfReceipt.match(dateOfReceipt_regex)) {
-				if(regexDate(dateOfReceipt)) {
-					dateOfReceipt_flag = 1;
-				} else {
-					dateOfReceipt_flag = 0;
-				}
-			}	
-
-			if(volumeNo.length == 0) {
-				volumeNo_flag = 0;
-				errMsg.innerHTML = "Please enter Volume No";
-			} else if(issueNo.length == 0) {
-				issueNo_flag = 0;
-				errMsg.innerHTML = "Please enter Issue No";
-			} else if(publicationDate.length == 0) {
-				publicationDate_flag = 0;
-				errMsg.innerHTML = "Please enter Publication date";
-			} else if(dateOfReceipt_flag == 0) {
-				if(dateOfReceipt.length == 0) {
-					errMsg.innerHTML = "Please enter Date of Receipt";
-				} else {
-					errMsg.innerHTML = "Please enter a valid date in Date of Receipt";
-				}
-			}
-			errMsg.style.display = "inline-block";
-			
-			if(volumeNo_flag == 1 && issueNo_flag == 1 && publicationDate_flag == 1 && dateOfReceipt_flag == 1) {
-				AJAXRequest("SetRegisterEntryDetails", showRegisterEntryDetails, "id="+encodeURIComponent(ID)+"&volumeNo="+encodeURIComponent(volumeNo)+"&issueNo="+encodeURIComponent(issueNo)+"&publicationDate="+encodeURIComponent(publicationDate)+"&dateOfReceipt="+encodeURIComponent(dateOfReceipt));
-			}
+		elem.style.display = "none";
+		content = null;
+		var entryBtn = document.getElementById("entry-details-add");
+		entryBtn.addEventListener("click", function() {
+			entryBtn.style.display = "none";
+			content = "<td>"+j+"</td>" +
+					"<td><input type = \"text\" id = \"entry-details-add-volno\" placeholder = \"Vol No.\"></td>" +
+					"<td><input type = \"text\" id = \"entry-details-add-issueno\" placeholder = \"Issue No.\"></td>" +
+					"<td><input type = \"text\" id = \"entry-details-add-publicationdate\" placeholder = \"Publication Date\" class = \"row-input\"></td>" +
+					"<td><input type = \"text\" id = \"entry-details-add-dateofreceipt\" placeholder = \"DD-MM-YYYY\" class = \"row-input\"></td>";
+			elem = document.getElementById("add-row");
+			elem.innerHTML = content;
+			elem = document.getElementById("entry-details-addentry");
+			elem.style.display = "inline-block";
+			elem.addEventListener("click", addEntry);
 		});
-	});
+	}	
 }
 
+
+function addEntry() {
+	var volumeNo = document.getElementById("entry-details-add-volno").value, volumeNo_flag = 1;
+	var issueNo = document.getElementById("entry-details-add-issueno").value, issueNo_flag = 1;
+	var publicationDate = document.getElementById("entry-details-add-publicationdate").value, publicationDate_flag = 1;
+	var dateOfReceipt = document.getElementById("entry-details-add-dateofreceipt").value, dateOfReceipt_flag = 0, dateOfReceipt_regex = /^(([0-9]{2})-([0-9]{2})-[0-9]{4})$/;
+	var errMsg = document.getElementById("error-message-2");
+	
+	if(dateOfReceipt.match(dateOfReceipt_regex)) {
+		if(regexDate(dateOfReceipt)) {
+			dateOfReceipt_flag = 1;
+		} else {
+			dateOfReceipt_flag = 0;
+		}
+	}	
+
+	if(volumeNo.length == 0) {
+		volumeNo_flag = 0;
+		errMsg.innerHTML = "Please enter Volume No";
+	} else if(issueNo.length == 0) {
+		issueNo_flag = 0;
+		errMsg.innerHTML = "Please enter Issue No";
+	} else if(publicationDate.length == 0) {
+		publicationDate_flag = 0;
+		errMsg.innerHTML = "Please enter Publication date";
+	} else if(dateOfReceipt_flag == 0) {
+		if(dateOfReceipt.length == 0) {
+			errMsg.innerHTML = "Please enter Date of Receipt";
+		} else {
+			errMsg.innerHTML = "Please enter a valid date in Date of Receipt";
+		}
+	}
+	errMsg.style.display = "inline-block";
+	
+	if(volumeNo_flag == 1 && issueNo_flag == 1 && publicationDate_flag == 1 && dateOfReceipt_flag == 1) {
+		errMsg.style.display = "none";
+		AJAXRequest("SetRegisterEntryDetails", showRegisterEntryDetails, "id="+encodeURIComponent(ID)+"&volumeNo="+encodeURIComponent(volumeNo)+"&issueNo="+encodeURIComponent(issueNo)+"&publicationDate="+encodeURIComponent(publicationDate)+"&dateOfReceipt="+encodeURIComponent(dateOfReceipt));
+	}
+}
+
+function diplayErrMsg2(datas) {
+	var errMsg = document.getElementById("error-message-2");
+	errMsg.innerHTML = datas.message;
+	errMsg.style.display = "inline-block";
+}
 
 var regexDate = function(data) {
 	var date = data.split('-');

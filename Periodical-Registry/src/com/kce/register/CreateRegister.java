@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -54,12 +55,13 @@ public class CreateRegister extends HttpServlet {
 			String placementNo = request.getParameter("placementNo");
 			String subscriptionNo = request.getParameter("subscriptionNo");
 			String emailID = request.getParameter("emailID");
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 			Map<String, String> li = new TreeMap<String, String>();
 			try {
-				Date periodFrom_date = new Date(new SimpleDateFormat("dd-MM-YYYY").parse(periodFrom).getTime());
-				Date periodTo_date = new Date(new SimpleDateFormat("dd-MM-yyyy").parse(periodTo).getTime());
-				Date DDORChequeDate_date = new Date(new SimpleDateFormat("dd-MM-yyyy").parse(DDORChequeDate).getTime());
- 				PreparedStatement ps = Database.getStmt("insert into register_details (publisher_name, periodical_name, periodical_type, periodicity, period_from, period_to, journal_type, department, publishers_address, supplying_agent_address, ddorcheque_no, ddorcheque_amount, ddorcheque_date, placement_no, subscription_no, email_id)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+				Date periodFrom_date = new Date(dateFormat.parse(periodFrom).getTime());
+				Date periodTo_date = new Date(dateFormat.parse(periodTo).getTime());
+				Date DDORChequeDate_date = new Date(dateFormat.parse(DDORChequeDate).getTime());
+				PreparedStatement ps = Database.getStmt("insert into register_details (publisher_name, periodical_name, periodical_type, periodicity, period_from, period_to, journal_type, department, publishers_address, supplying_agent_address, ddorcheque_no, ddorcheque_amount, ddorcheque_date, placement_no, subscription_no, email_id)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 				ps.setString(1, publisherName);
 				ps.setString(2, periodicalName);
 				ps.setString(3, periodicalType);
@@ -88,8 +90,8 @@ public class CreateRegister extends HttpServlet {
 				ps = Database.getStmt("create table register_entry_"+id+" (id int, volume_no int, issue_no int, publication_date varchar(256), date_of_receipt date)");
 				ps.executeUpdate();
 				if(periodicity .equals("Monthly")) {
-					ps = Database.getStmt("create table periodicity_"+id+" (id int, month int, year int, received int, notified int)");
-					ps.executeUpdate();
+					PreparedStatement ps1 = Database.getStmt("create table periodicity_"+id+" (id int, month int, year int, received int, notified int)");
+					ps1.executeUpdate();
 					String dateParts[] = periodFrom.split("-");
 					int startMonth = Integer.parseInt(dateParts[1]);
 					int startYear = Integer.parseInt(dateParts[2]);
@@ -99,18 +101,37 @@ public class CreateRegister extends HttpServlet {
 					int month = startMonth;
 					int year = startYear;
 					while(!(month > endMonth && year >= endYear)) {
-						ps = Database.getStmt("insert into periodicity_"+id+" values(?, ?, ?, ?, ?)");
-						ps.setString(1, id);
-						ps.setInt(2,  month);
-						ps.setInt(3,  year);
-						ps.setInt(4, 0);
-						ps.setInt(5, 0);
-						ps.executeUpdate();
+						PreparedStatement ps2 = Database.getStmt("insert into periodicity_"+id+" values(?, ?, ?, ?, ?)");
+						ps2.setString(1, id);
+						ps2.setInt(2,  month);
+						ps2.setInt(3,  year);
+						ps2.setInt(4, 0);
+						ps2.setInt(5, 0);
+						ps2.executeUpdate();
 						if(month == 12){
 							month = 0;
 							year++;
 						}
 						month++;
+					}
+				} else if(periodicity.equals("Weekly")) {
+					PreparedStatement ps1 = Database.getStmt("create table periodicity_"+id+" (id int, week int, year int, received int, notified int)");
+					ps1.executeUpdate();
+					Calendar cal = Calendar.getInstance();
+					cal.setTime(periodTo_date);
+					int diff = Calendar.SATURDAY - cal.get(Calendar.DAY_OF_WEEK);
+					cal.add(Calendar.DAY_OF_YEAR, diff);
+					java.util.Date endDate = cal.getTime();
+					cal.setTime(periodFrom_date);
+					while(cal.getTime().compareTo(endDate) <= 0) {
+						PreparedStatement ps2 = Database.getStmt("insert into periodicity_"+id+" values(?, ?, ?, ?, ?)");
+						ps2.setString(1, id);
+						ps2.setInt(2, cal.get(Calendar.WEEK_OF_YEAR));
+						ps2.setInt(3, cal.get(Calendar.YEAR));
+						ps2.setInt(4,  0);
+						ps2.setInt(5, 0);
+						ps2.executeUpdate();
+						cal.add(Calendar.DAY_OF_YEAR, 7);
 					}
 				}
 				li.put("code", "1");
@@ -121,6 +142,7 @@ public class CreateRegister extends HttpServlet {
 			} catch(Exception e) {
 				li.put("code", "0");
 				li.put("message", "error");
+				System.out.println(e);
 				out.println(new Gson().toJson(li));
 				out.flush();
 				out.close();
