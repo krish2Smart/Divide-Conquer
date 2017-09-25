@@ -13,10 +13,22 @@ function loadUsers(datas) {
 	} else {
 		var login = document.getElementById("login-btn"); 
 		login.addEventListener("click",function() {	
-			var userName = document.getElementById("username").value;
-			var password = document.getElementById("password").value;
-			if(userName.length !== 0 && password.length !== 0) {
+			var userName = document.getElementById("username").value, userName_flag = 1;
+			var password = document.getElementById("password").value, password_flag = 1;
+			var errMsg = document.getElementById("error-message");
+			if(userName.length == 0) {
+				errMsg.innerHTML = "Please enter Username";
+				userName_flag = 0;
+			} else if (password.length == 0) {
+				errMsg.innerHTML = "Please enter Password";
+				password_flag = 0;
+			}
+			
+			if(userName_flag == 1 && password_flag == 1) {
+				errMsg.style.display = "none";
 				AJAXRequest("CheckLogin",checkLogin, "userName="+encodeURIComponent(userName)+"&password="+encodeURIComponent(password));
+			} else {
+				errMsg.style.display = "block";
 			}
 		});
 	}

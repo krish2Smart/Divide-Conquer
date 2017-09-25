@@ -17,7 +17,7 @@ var renderHTML = {
 			"actionurl" : "newarrival",
 			"action" : function() {
 				var errMsg = document.getElementById("error-message");
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("collections-newarrival-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+(" + allowedFiles.join('|') + ")$");
 				if(!fileName.toLowerCase().match(fileName_regex)) {
 					fileName_flag = 0;
@@ -70,7 +70,7 @@ var renderHTML = {
 			"actionurl" : "cdtable",
 			"action" : function() {
 				var errMsg = document.getElementById("error-message");
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var degree = document.getElementById("collections-cdtable-degree").value, degree_flag = 1;
 				var department = document.getElementById("collections-cdtable-department").value;
 				var fileName = document.getElementById("collections-cdtable-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+("+allowedFiles.join('|')+")$");
@@ -109,7 +109,7 @@ var renderHTML = {
 			"actionurl" : "newarrival",
 			"action" : function() {
 				var errMsg = document.getElementById("error-message");
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("journals-newarrival-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+("+allowedFiles.join('|')+")$");
 				if(!fileName.toLowerCase().match(fileName_regex)) {
 					fileName_flag = 0;
@@ -135,7 +135,7 @@ var renderHTML = {
 			"actionurl" : "cdtable",
 			"action" : function() {
 				var errMsg = document.getElementById("error-message");
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("journals-cdtable-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+("+allowedFiles.join('|')+")$");
 				var region = document.getElementById("journals-cdtable-region").value, region_flag = 1;
 				var degree = document.getElementById("journals-cdtable-degree").value, degree_flag = 1;
@@ -179,7 +179,7 @@ var renderHTML = {
 			"actionurl" : "newarrival",
 			"action" : function() {
 				var errMsg = document.getElementById("error-message");
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("magazines-newarrival-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+("+allowedFiles.join('|')+")$");
 				if(!fileName.toLowerCase().match(fileName_regex)) {
 					fileName_flag = 0;
@@ -205,7 +205,7 @@ var renderHTML = {
 			"actionurl" : "cdtable",
 			"action" : function() {
 				var errMsg = document.getElementById("error-message");	
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("magazines-cdtable-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+("+allowedFiles.join('|')+")$");
 				var region = document.getElementById("magazines-cdtable-region").value, region_flag = 1;
 				var degree = document.getElementById("magazines-cdtable-degree").value, degree_flag = 1;
@@ -270,7 +270,7 @@ var renderHTML = {
 			"actionurl" : "newarrival",
 			"action" : function() {
 				var errMsg = document.getElementById("error-message");
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("mba-library-newarrival-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+(" + allowedFiles.join('|') + ")$");
 				if(!fileName.toLowerCase().match(fileName_regex)) {
 					fileName_flag = 0;
@@ -334,7 +334,7 @@ var renderHTML = {
 			"actionurl" : "journalssubscribed",
 			"action" : function() {
 				var errMsg = document.getElementById("error-message");
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("mba-library-journalssubscribed-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+(" + allowedFiles.join('|') + ")$");
 				if(!fileName.toLowerCase().match(fileName_regex)) {
 					fileName_flag = 0;
@@ -360,7 +360,7 @@ var renderHTML = {
 			"actionurl" : "magazinessubscribed",
 			"action" : function() {
 				var errMsg = document.getElementById("error-message");
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("mba-library-magazinessubscribed-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+(" + allowedFiles.join('|') + ")$");
 				if(!fileName.toLowerCase().match(fileName_regex)) {
 					fileName_flag = 0;
@@ -389,7 +389,7 @@ var renderHTML = {
 			"actionurl" : "newarrival",
 			"action" : function() {
 				var errMsg = document.getElementById("error-message");
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("mca-library-newarrival-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+(" + allowedFiles.join('|') + ")$");
 				if(!fileName.toLowerCase().match(fileName_regex)) {
 					fileName_flag = 0;
@@ -453,7 +453,7 @@ var renderHTML = {
 			"actionurl" : "journalssubscribed",
 			"action" : function() {
 				var errMsg = document.getElementById("error-message");
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("mca-library-journalssubscribed-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+(" + allowedFiles.join('|') + ")$");
 				if(!fileName.toLowerCase().match(fileName_regex)) {
 					fileName_flag = 0;
@@ -479,7 +479,7 @@ var renderHTML = {
 			"actionurl" : "magazinessubscribed",
 			"action" : function() {
 				var errMsg = document.getElementById("error-message");
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("mca-library-magazinessubscribed-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+(" + allowedFiles.join('|') + ")$");
 				if(!fileName.toLowerCase().match(fileName_regex)) {
 					fileName_flag = 0;
@@ -504,14 +504,55 @@ var renderHTML = {
 	},
 	"downloads" : {
 		"actionurl" : "downloads",
+		"navigate" : function(datas) {
+			if(datas.code == 1) {
+				alert(datas.message);
+				window.location.href = "AdminPage?option=Downloads";
+			} else {
+				alert("Something went wrong, try again");
+			}
+		},
+		"faculty" : {
+			"actionurl" : "faculty",
+			"navigate" : function(datas) {
+				if(datas.code == 1) {
+					alert(datas.message);
+					window.location.href = "AdminPage?option=Downloads/Faculty";
+				} else {
+					alert("Something went wrong, try again");
+				}
+			},
+			"load" : function(datas) {
+				var facultyDiv = document.getElementById("downloads-faculty");
+				var HTMLContent;
+				HTMLContent = "<table>";
+				HTMLContent += "<tr><th>S.No</th><th>Staff Name</th><th>Dept.</th><th>Paper</th><th>Name of the Journal</th><th>Delete</th></tr>";
+				for(var i = 0; i < datas.length; i++) {																																	
+					HTMLContent += "<tr><td>"+(i+1)+"</td><td>"+datas[i].staffName+"</td><td>"+datas[i].department+"</td><td>"+datas[i].paper+"</td><td>"+datas[i].journalName+"</td><td><a class=\"delete-icon\" href=\"#\" data-target="+datas[i].id+"></a></td></tr>";
+				} 
+				HTMLContent += "<tr><td colspan = \"6\"><input type = \"button\" value = \"Add Paper\" id = \"downloads-faculty-add-row\"></td></tr>";
+				HTMLContent += "</table>";
+				facultyDiv.innerHTML = HTMLContent;
+				var addPaper = document.getElementById("downloads-faculty-add-row");
+				addPaper.addEventListener("click", function() {
+					window.location.href = "AdminPage?option=Downloads/Papers";
+				});
+				var dlt = document.getElementsByClassName("delete-icon");
+				for(var i = 0; i < dlt.length; i++) {
+					dlt[i].addEventListener("click", function() {
+						AJAXRequest("DeleteFacultyPaper", renderHTML["downloads"]["faculty"]["navigate"], "id="+encodeURIComponent(this.getAttribute("data-target")));
+					});
+				}
+			}
+		},
 		"papers" : {
 			"actionurl" : "papers",
 			"action" : function() {
 				var staffName = document.getElementById("downloads-papers-staffname").value, staffName_flag = 1, staffName_regex = /^([a-zA-Z\. ]{1,})$/;
 				var department = document.getElementById("downloads-papers-department").value, department_flag = 1, department_regex = /^[A-Za-z&"'/ ]{1,}$/;
-				var paper = document.getElementById("downloads-papers-paper").value, paper_flag = 1, paper_regex = /^[A-Za-z\s&"'/., ]{1,}$/;
-				var journal = document.getElementById("downloads-papers-journal").value, journal_flag = 1, journal_regex = /^[A-Za-z\s&"'/ ]{1,}$/;
-				var allowedFiles = [".pdf", " .pdf"];
+				var paper = document.getElementById("downloads-papers-paper").value, paper_flag = 1, paper_regex = /^[A-Za-z\s&"':/., ]{1,}$/;
+				var journal = document.getElementById("downloads-papers-journal").value, journal_flag = 1, journal_regex = /^[A-Za-z\s&"':/., ]{1,}$/;
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("downloads-papers-file").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+(" + allowedFiles.join('|') + ")$"); 
 				var errMsg = document.getElementById("error-message");
 				if(!staffName.match(staffName_regex)) {
@@ -566,7 +607,7 @@ var renderHTML = {
 			"action" : function() {
 				var formName = document.getElementById("downloads-forms-formname").value, formName_flag = 1, formName_regex = /^([a-zA-Z0-9\.\s()/&'" ]{1,})$/;
 				var working = document.getElementById("downloads-forms-working").value, working_flag = 1, working_regex = /^[A-Za-z&"'/ ]{1,}$/;
-				var allowedFiles = [".pdf", " .pdf"];
+				var allowedFiles = [".pdf", " .PDF"];
 				var fileName = document.getElementById("downloads-forms-file").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+(" + allowedFiles.join('|') + ")$"); 
 				var errMsg = document.getElementById("error-message");
 				if(!formName.match(formName_regex)) {
@@ -657,7 +698,7 @@ var renderHTML = {
 		"actionurl" : "qpapers",
 		"action" : function() {
 			var errMsg = document.getElementById("error-message");
-			var allowedFiles = [".pdf", " .pdf"];
+			var allowedFiles = [".pdf", " .PDF"];
 			var fileName = document.getElementById("qpapers-value").value, fileName_flag = 1, fileName_regex = new RegExp("([a-zA-Z0-9\s_\\.\-:()])+("+allowedFiles.join('|')+")$");
 			var category = document.getElementById("qpapers-category").value, category_flag = 1;
 			var degree = document.getElementById("qpapers-degree").value, degree_flag = 1;
@@ -713,6 +754,28 @@ var renderHTML = {
 	},
 	"settings" : {
 		"actionurl" : "settings",
+		"change-home-content" : {
+			"actionurl" : "change-home-content",
+			"navigate" : function(datas) {
+				if(datas.code == 1) {
+					alert(datas.message);
+					window.location.href = "AdminPage?option=Settings";
+				} else {
+					alert("Something went wrong, please try again");
+				}
+			},
+			"action" : function() {
+				var content = document.getElementById("content").value;
+				var errMsg = document.getElementById("error-message");
+				if(content.length !== 0) {
+					errMsg.style.display = "none";
+					AJAXRequest("UpdateHomeContent", renderHTML["settings"]["change-home-content"]["navigate"], "content="+encodeURIComponent(content));
+				} else {
+					errMsg.style.display = "block";
+					errMsg.innerText = "Please enter content";
+				}
+			}
+		},
 		"change-username" : {
 			"actionurl" : "username",
 			"action" : function() {
@@ -1165,6 +1228,15 @@ function loadUsers(datas) {
 				window.location.href = "AdminPage?option=Downloads";
 			});
 		}
+		if(document.getElementById(renderHTML["downloads"]["actionurl"]+"-"+renderHTML["downloads"]["faculty"]["actionurl"]+"-btn") !== null) {
+			btn = document.getElementById(renderHTML["downloads"]["actionurl"]+"-"+renderHTML["downloads"]["faculty"]["actionurl"]+"-btn");
+			btn.addEventListener("click", function() {
+				window.location.href = "AdminPage?option=Downloads/Faculty";
+			});
+		}
+		if(document.getElementById(renderHTML["downloads"]["actionurl"]+"-"+renderHTML["downloads"]["faculty"]["actionurl"]) !== null) {
+			AJAXRequest("GetFacultyPapers", renderHTML["downloads"]["faculty"]["load"]);
+		}
 		if(document.getElementById(renderHTML["downloads"]["actionurl"]+"-"+renderHTML["downloads"]["papers"]["actionurl"]+"-btn") !== null) {
 			btn = document.getElementById(renderHTML["downloads"]["actionurl"]+"-"+renderHTML["downloads"]["papers"]["actionurl"]+"-btn");
 			btn.addEventListener("click", function() {
@@ -1266,6 +1338,16 @@ function loadUsers(datas) {
 			btn.addEventListener("click", function() {	
 				window.location.href = "AdminPage?option=Settings";
 			});
+		}
+		if(document.getElementById(renderHTML["settings"]["change-home-content"]["actionurl"]+"-btn") !== null) {
+			btn = document.getElementById(renderHTML["settings"]["change-home-content"]["actionurl"]+"-btn");
+			btn.addEventListener("click", function() {
+				window.location.href = "AdminPage?option=change-home-content";
+			});
+		}
+		if(document.getElementById(renderHTML["settings"]["change-home-content"]["actionurl"]+"-sub") !== null) {
+			btn = document.getElementById(renderHTML["settings"]["change-home-content"]["actionurl"]+"-sub");
+			btn.addEventListener("click", renderHTML["settings"]["change-home-content"]["action"]);
 		}
 		if(document.getElementById("changeuser-btn") !== null) {
 			btn = document.getElementById("changeuser-btn");
@@ -1400,6 +1482,7 @@ function showFeedbackNotifications(datas) {
 		});
 	}
 }
+
 
 function setBEDepartments(datas) {
 	BEDepartmentsList = datas;

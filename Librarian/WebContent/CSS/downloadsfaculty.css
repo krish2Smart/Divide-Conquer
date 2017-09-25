@@ -1,0 +1,40 @@
+@CHARSET "ISO-8859-1";
+
+#downloads-faculty {
+	margin-top : 100px;
+	padding-left : 300px;
+	overflow : auto;
+	float : left;
+	width : 800px;
+}
+
+#downloads-faculty table {
+	width : 800px;
+}
+
+#downloads-faculty table, #downloads-faculty table th, #downloads-faculty table td {
+	border : 1px solid #eb4640;
+	border-collapse : collapse;
+	padding : 10px;
+	text-align : center;
+}
+
+#downloads-faculty table tr:nth-child(even) {
+	background-color : rgb(241, 169, 160);
+}
+
+#downloads-faculty-add-row {
+	border-radius : 10%;
+	height : 25px;
+	width : 100px;
+	background : transparent;
+}
+
+.delete-icon {
+	background : url('../Icons/delete.png') no-repeat; 
+	height : 20px;
+	width : 13px;
+	display : block;
+	position : relative;
+	left : 10px;
+}
