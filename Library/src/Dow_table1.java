@@ -51,11 +51,11 @@ public class Dow_table1 extends HttpServlet {
 			while(setContent.next())
 			{
 				DownloadContent tbcontent = new DownloadContent();
-				tbcontent.setStaff_name(setContent.getString(1));
-				tbcontent.setDepartment(setContent.getString(2));
-				tbcontent.setPaper(setContent.getString(3));
-				tbcontent.setJournal_name(setContent.getString(4));
-				tbcontent.setFile_name(setContent.getString(5));
+				tbcontent.setStaff_name(setContent.getString(2));
+				tbcontent.setDepartment(setContent.getString(3));
+				tbcontent.setPaper(setContent.getString(4));
+				tbcontent.setJournal_name(setContent.getString(5));
+				tbcontent.setFile_name(setContent.getString(6));
 				list.add(tbcontent);
 			}
 			respond.println(gson.toJson(list));
