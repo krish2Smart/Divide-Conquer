@@ -1,0 +1,115 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	display : block;
+	width : 1349px;
+	margin : 0px;
+	padding : 0px;
+}
+
+#header {
+	display : block;
+	margin : 0px;
+	padding : 0px;
+}
+
+#nala-logo {
+	position : absolute;
+	top : 30px;
+	left : 70px;
+}
+
+#nala-text {
+	position : relative;
+	top : -35px;
+	left : 80px;
+}
+
+#resort-text {
+	position : absolute;
+	font-family : cursive;
+	font-size : 45px;
+	color : rgb(182,182,182);
+	top : 50px;
+	left : 78px;
+}
+
+#navbar {
+	display : inline-block;
+	height : 52px;
+	padding-top : 58px;
+	padding-left : 150px;
+	padding-bottom : 0px;
+}
+
+#navbar ul {
+	margin : 0px;
+	padding : 0px;
+}
+
+#navbar ul li {
+	padding : 20px 35px 8px 35px;
+	list-style-type : none;
+	float : left;
+}
+
+#navbar ul li a {
+	text-decoration : none;
+	font-size : 20px;
+	color : rgb(80,182,230);
+}
+
+#navbar ul li.active {
+	color : rgb(255, 50, 90);
+	border-bottom : 5px solid rgb(255, 50, 90);
+}
+
+#navbar ul li.active a, #navbar ul li.inactive a:hover {
+	color : rgb(255, 50, 90);
+}
+
+.border-top {
+	display : block;
+	border-bottom : 2px solid rgb(255, 50, 90);
+	padding : 0px;
+	margin : 0px;
+}
+
+.text-field-1 {
+	height : 25px;
+	width : 210px;
+	border : 1.5px solid #ccc;
+	border-radius : 3px;
+}
+
+.calendar-field {
+	height : 25px;
+	width : 180px;
+	border : 1.5px solid #ccc;
+	border-radius : 3px;
+}
+
+.calendar-img {
+	background-image : url("../Images/calendar-img.png");
+	display : inline-block;
+	position : relative;
+	top : 10px;
+	height : 30px;
+	width : 30px;
+	background-size : cover;
+}
+
+.select-field-1 {
+	height : 30px;
+	width : 130px;
+	border : 1.5px solid #ccc;
+	border-radius : 3px;
+}
+
+.low-opacity {
+	color : #ccc;
+}
+
+label {
+	font-size : 15px;
+}

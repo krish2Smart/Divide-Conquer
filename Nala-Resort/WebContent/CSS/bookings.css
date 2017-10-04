@@ -1,0 +1,74 @@
+@CHARSET "ISO-8859-1";
+
+#bookings-container {
+	display : block;
+	clear : both;
+}
+
+#booking-img {
+	position : absolute;
+	width : 1349px;
+}
+
+#booking-title {
+	position : absolute;
+	z-index : 1;
+	top : 150px;
+	left : 190px;
+	width : 510px;
+	text-align : center;
+	padding : 10px;
+	font-family : Times New Roman;
+	font-size : 30px;
+	color : white;
+}
+ 	
+#form-container {
+	position : absolute;
+	top : 200px;
+	left : 200px;
+	height :410px;
+	width : 510px;
+	background-color : white;
+	border-top : 3px solid rgb(80,182,230);
+}
+
+#form-container .booking-form-ul {
+	list-style-type : none;
+	padding : 0px;
+	margin : 0px;
+}
+
+#form-container .booking-form-ul .booking-form-li{
+	float : left;
+	color : #666;
+	padding : 5px 11px 5px 25px;
+}
+
+#error-message {
+	text-align : center;
+	width : 510px;
+	height : 20px;
+	color : rgb(255, 50, 90);
+}
+
+#form-container .submit {
+	float : right;
+	padding : 10px 40px;
+}
+
+#form-container .submit #booking-book {
+	height : 30px;
+	width : 430px;
+	background-color : rgb(255, 50, 90);
+	color : white;
+	border : 0px;
+}
+
+#booking-check-in-calendar-container {
+	display : none;
+}
+
+#booking-check-out-calendar-container {
+	display : none;
+}
