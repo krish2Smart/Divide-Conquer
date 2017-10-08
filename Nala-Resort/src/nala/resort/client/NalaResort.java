@@ -48,6 +48,10 @@ public class NalaResort extends HttpServlet {
 					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/bookings.css\">");
 					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/calendar.css\">");
 					out.println("<script type = \"text/javascript\" src = \"Javascript/bookings.js\"></script>");
+				} else if(link.equals("Bookings/Status")) {
+					out.println("<title>Nala Resort | Bookings</title>");
+					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/bookingstatus.css\">");
+					out.println("<script type = \"text/javascript\" src = \"Javascript/bookings.js\"></script>");
 				} else if(link.equals("Cancellations")) {
 					out.println("<title>Nala Resort | Cancellations</title>");
 					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/cancellations.css\">");
@@ -63,6 +67,8 @@ public class NalaResort extends HttpServlet {
 					request.getRequestDispatcher("home.html").include(request, response);
 				} else if(link.equals("Bookings")) {
 					request.getRequestDispatcher("bookings.html").include(request, response);
+				} else if(link.equals("Bookings/Status")){
+					request.getRequestDispatcher("bookingstatus.html").include(request, response);
 				} else if(link.equals("CheckOTP")) {
 					request.getRequestDispatcher("checkotp.html").include(request, response);
 				}

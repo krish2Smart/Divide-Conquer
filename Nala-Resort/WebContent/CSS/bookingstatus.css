@@ -1,0 +1,29 @@
+@CHARSET "ISO-8859-1";
+
+#status-container {
+	background-color : #eee;
+	margin-top : 150px;
+	margin-left : 300px;
+	width : 700px;
+	height : 200px;
+	text-align : center;
+	border-radius : 10px;
+}
+
+#content-holder {
+	padding-top : 20px;
+}
+
+#cab-booking-holder {
+	padding-top : 30px;
+}
+
+.button {
+	background-color : rgb(255, 50, 90);
+	height : 30px;
+	width : 80px;
+	margin : 10px;
+	color : white;
+	border : 0px;
+}
+

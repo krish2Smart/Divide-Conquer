@@ -2,8 +2,9 @@
  * 
  */
 
+
 var renderBookings = {
-	"actionurl" : "bookings-container",
+	"actionurl" : "booking-book",
 	"person-name" : {
 		"actionurl" : "booking-person-name"
 	},
@@ -55,51 +56,47 @@ var renderBookings = {
 	"floor-no" : {
 		"actionurl" : "booking-floor-no",
 		"load" : function(datas) {
-			var HTMLContent = "<option disabled selected>Select</option>";
+			var HTMLContent = "<option>Select</option>";
 			var i;
 			for(i = 0; i < datas.length; i++) {
 				HTMLContent += "<option>"+datas[i]+"</option>";
 			}
 			var elem = document.getElementById(renderBookings["floor-no"]["actionurl"]);
 			elem.innerHTML = HTMLContent;
-		},
-		"change" : function() {
-			var floorNo = document.getElementById(renderBookings["floor-no"]["actionurl"]).value;
-			var roomType = document.getElementById(renderBookings["room-type"]["actionurl"]).value;
-			var errMsg = document.getElementById("error-message");
-			var formContainer = document.getElementById("form-container");
-			if(floorNo === "Select") {
-				errMsg.innerText = "Please select floor no";
-				errMsg.style.display = "inline-block";
-				formContainer.style.height = "430px";
-			} else if(roomType === "Select") {
-				errMsg.innerText = "Please select room type";
-				errMsg.style.display = "inline-block";
-				formContainer.style.height = "430px";
-			} else { 
-				errMsg.style.display = "none";
-				formContainer.style.height = "410px";
-				AJAXRequest("GetRoomNo", renderBookings["room-no"]["load"], "floor-no="+encodeURIComponent(floorNo)+"&room-type="+encodeURIComponent(roomType));
-			}
 		}
 	},
 	"room-type" : {
 		"actionurl" : "booking-room-type",
 		"load" : function(datas) {
-			var HTMLContent = "<option disabled selected>Select</option>";;
+			var HTMLContent = "<option>Select</option>";;
 			var i;
 			for(i = 0; i < datas.length; i++) {
 				HTMLContent += "<option>"+datas[i]+"</option>";
 			}
 			var elem = document.getElementById(renderBookings["room-type"]["actionurl"]);
 			elem.innerHTML = HTMLContent;
-		},
-		"change" : function() {
+		}
+	},
+	"room-no" : {
+		"actionurl" : "booking-room-no",
+		"get" : function() {
+			var checkIn = document.getElementById(renderBookings["check-in"]["actionurl"]).value;
+			var checkOut = document.getElementById(renderBookings["check-out"]["actionurl"]).value;
 			var floorNo = document.getElementById(renderBookings["floor-no"]["actionurl"]).value;
 			var roomType = document.getElementById(renderBookings["room-type"]["actionurl"]).value;
+			
 			var errMsg = document.getElementById("error-message");
 			var formContainer = document.getElementById("form-container");
-			if(floorNo === "Select") {
+			
+			if(checkIn.length === 0) {
+				errMsg.innerHTML = "Please select check in";
+				errMsg.style.display = "inline-block";
+				formContainer.style.height = "430px";
+			} else if(checkOut.length === 0) {
+				errMsg.innerHTML = "Please select check Out";
+				errMsg.style.display = "inline-block";
+				formContainer.style.height = "430px";
+			} else if(floorNo === "Select") {
 				errMsg.innerText = "Please select floor no";
 				errMsg.style.display = "inline-block";
 				formContainer.style.height = "430px";
@@ -110,24 +107,33 @@ var renderBookings = {
 			} else {
 				errMsg.style.display = "none";
 				formContainer.style.height = "410px";
-				AJAXRequest("GetRoomNo", renderBookings["room-no"]["load"], "floor-no="+encodeURIComponent(floorNo)+"&room-type="+encodeURIComponent(roomType));
+				AJAXRequest("GetRoomNo", renderBookings["room-no"]["load"], "check-in="+encodeURIComponent(checkIn)+"&check-out="+encodeURIComponent(checkOut)+"&floor-no="+encodeURIComponent(floorNo)+"&room-type="+encodeURIComponent(roomType));
 			}
-		}
-	},
-	"room-no" : {
-		"actionurl" : "booking-room-no",
+		}, 
 		"load" : function(datas) {
-			var HTMLContent = "<option disabled selected>Select</option>";;
-			var i;
-			for(i = 0; i < datas.length; i++) {
-				HTMLContent += "<option>"+datas[i]+"</option>";
+			var errMsg = document.getElementById("error-message");
+			var formContainer = document.getElementById("form-container");
+			alert(datas);
+			var HTMLContent = "<option>Select</option>";
+			if(datas.length == 0) {
+				HTMLContent += "<option>No rooms</option>";
+				errMsg.innerText = "No rooms available for your dates of selected room type and floor";
+				errMsg.style.display = "inline-block";
+				formContainer.style.height = "430px";
+			} else {
+				errMsg.style.display = "none";
+				formContainer.style.height = "410px";
+				var i;
+				for(i = 0; i < datas.length; i++) {
+					HTMLContent += "<option>"+datas[i]+"</option>";
+				}
 			}
 			var elem = document.getElementById(renderBookings["room-no"]["actionurl"]);
 			elem.innerHTML = HTMLContent;
 		}
 	},
 	"services" : {
-		"actionurl" : "booking-services"
+		"actionurl" : "booking-service"
 	},
 	"phone-no" : {
 		"actionurl" : "booking-phone-no"
@@ -135,14 +141,144 @@ var renderBookings = {
 	"email-id" : {
 		"actionurl" : "booking-email-id"
 	},
-	"amount-paid-in-advance" : {
-		"actionurl" : "booking-amount-paid-in-advance"
+	"amount-paid" : {
+		"actionurl" : "booking-amount-paid"
 	},
-	"amount" : {
-		"actionurl" : "booking-amount"
+	"price" : {
+		"actionurl" : "booking-price",
+		"set" : function(price) {
+			if(price !== "error") {
+				var elem = document.getElementById(renderBookings["price"]["actionurl"]);
+				elem.value = price;
+			}
+		},
+		"action" : function() {
+			var checkIn = document.getElementById(renderBookings["check-in"]["actionurl"]).value;
+			var checkOut = document.getElementById(renderBookings["check-out"]["actionurl"]).value;
+			var roomType = document.getElementById(renderBookings["room-type"]["actionurl"]).value;
+			if(checkIn.length !== 0 && checkOut.length !== 0 && roomType !== "Select") {
+				AJAXRequest("CalculatePrice", renderBookings["price"]["set"], "check-in="+encodeURIComponent(checkIn)+"&check-out="+encodeURIComponent(checkOut)+"&room-type="+encodeURIComponent(roomType));
+			} else {
+				var elem = document.getElementById(renderBookings["price"]["actionurl"]);
+				elem.value = "";
+			}
+		}
 	},
 	"action" : function() {
-		var personName = document.getElementById(renderBookings["person-name"])
+		var personName = document.getElementById(renderBookings["person-name"]["actionurl"]).value, personName_regex = /^[A-Za-z ,.'-]{1,}$/, personName_flag = 1;
+		var aadharNo = document.getElementById(renderBookings["aadhar-no"]["actionurl"]).value, aadharNo_regex = /^\d{12}$/, aadharNo_flag = 1;
+		var checkIn = document.getElementById(renderBookings["check-in"]["actionurl"]).value, checkIn_flag = 1;
+		var checkOut = document.getElementById(renderBookings["check-out"]["actionurl"]).value, checkOut_flag = 1;		
+		var floorNo = document.getElementById(renderBookings["floor-no"]["actionurl"]).value, floorNo_flag = 1;
+		var roomType = document.getElementById(renderBookings["room-type"]["actionurl"]).value, roomType_flag = 1;
+		var roomNo = document.getElementById(renderBookings["room-no"]["actionurl"]).value, roomNo_flag = 1;
+		var services = document.getElementsByClassName(renderBookings["services"]["actionurl"]), dryCleaning = 0, laundryFacilities = 0, freeNewsPapers = 0;
+		var phoneNo = document.getElementById(renderBookings["phone-no"]["actionurl"]).value, phoneNo_regex = /^([+][9][1] |[9][1] |[0] |[+][9][1]|[9][1]|[0]){0,2}([7-9]{1})([0-9]{9})$/, phoneNo_flag = 1;
+		var emailId = document.getElementById(renderBookings["email-id"]["actionurl"]).value, emailId_regex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/, emailId_flag = 1;
+		var amountPaid = document.getElementById(renderBookings["amount-paid"]["actionurl"]).value, amountPaid_regex = /^\d+(?:[,]\d+)*(?:[.]\d+){0,1}$/, amountPaid_flag = 1;
+		var price = document.getElementById(renderBookings["price"]["actionurl"]).value, price_flag = 1;
+		
+		var errMsg = document.getElementById("error-message");
+		var form = document.getElementById("form-container");
+
+		for(i = 0; i < services.length; i++) {
+			if(services[i].checked) {
+				if(services[i].value === "dryCleaning") {
+					dryCleaning = 1;
+				} else if(services[i].value === "laundryFacilities") {
+					laundryFacilities = 1;
+				} else if(services[i].value === "freeNewsPapers") {
+					freeNewsPapers = 1;
+				}
+			}
+		}
+		
+		if(!personName.match(personName_regex)) {
+			personName_flag = 0;
+			if(personName.length === 0) {
+				errMsg.innerHTML = "Please enter person name";
+			} else {
+				errMsg.innerHTML = "Please enter valid person name";
+			}
+		} else if(!aadharNo.match(aadharNo_regex)) {
+			aadharNo_flag = 0;
+			if(aadharNo.length == 0) {
+				errMsg.innerHTML = "Please enter aadhar no";
+			} else {
+				errMsg.innerHTML = "Please enter valid aadhar no";
+			}
+		} else if(checkIn.length === 0) {
+			checkIn_flag = 0;
+			errMsg.innerHTML = "Please select check in";
+		} else if(checkOut.length === 0) {
+			checkOut_flag = 0;
+			errMsg.innerHTML = "Please select check Out";
+		} else if(floorNo === "Select") {
+			floorNo_flag = 0;
+			errMsg.innerHTML = "Please select floor no";
+		} else if(roomType === "Select") {
+			roomType_flag = 0;
+			errMsg.innerHTML = "Please select room type";
+		} else if(roomNo === "Select") {
+			roomNo_flag = 0;
+			errMsg.innerHTML = "Please select room no";
+		} else if(!phoneNo.match(phoneNo_regex)) {
+			phoneNo_flag = 0;
+			if(phoneNo.length == 0) {
+				errMsg.innerHTML = "Please enter phone no";
+			} else {
+				errMsg.innerHTML = "Please enter valid phone no";
+			}
+		} else if(!emailId.match(emailId_regex)) {
+			emailId_flag = 0;
+			if(emailId.length == 0) {
+				errMsg.innerHTML = "Please enter email id";
+			} else {
+				errMsg.innerHTML = "Please enter valid email id";
+			}
+		} else if(!amountPaid.match(amountPaid_regex)) {
+			amountPaid_flag = 0;
+			if(amountPaid.length == 0) {
+				errMsg.innerHTML = "Please enter amount paid";
+			} else {
+				errMsg.innerHTML = "Please enter valid amount paid";
+			}
+		} else if(price.length === 0) {
+			price_flag = 0;
+			errMsg.innerHTML = "Please check the details";
+		}
+		
+		
+		if(personName_flag === 1 && aadharNo_flag === 1 && checkIn_flag === 1 && checkOut_flag === 1 && floorNo_flag === 1 && roomType_flag === 1 && roomNo_flag === 1 && phoneNo_flag === 1 && emailId_flag === 1 && amountPaid_flag === 1 && price_flag === 1) {
+			errMsg.style.display = "none";
+			form.style.height = "410px";
+			AJAXRequest("BookYourStay", renderBookings["navigate"], "person-name="+encodeURIComponent(personName)+"&aadhar-no="+encodeURIComponent(aadharNo)+"&check-in="+encodeURIComponent(checkIn)+"&check-out="+encodeURIComponent(checkOut)+"&floor-no="+encodeURIComponent(floorNo)+"&room-type="+encodeURIComponent(roomType)+"&room-no="+encodeURIComponent(roomNo)+"&dry-cleaning="+encodeURIComponent(dryCleaning)+"&laundry-facilities="+encodeURIComponent(laundryFacilities)+"&free-news-papers="+encodeURIComponent(freeNewsPapers)+"&phone-no="+encodeURIComponent(phoneNo)+"&email-id="+encodeURIComponent(emailId)+"&amount-paid="+encodeURIComponent(amountPaid)+"&price="+encodeURIComponent(price));
+		} else {
+			errMsg.style.display = "inline-block";
+			form.style.height = "430px";
+		}
+	},
+	"navigate" : function(data) {
+		document.location.href = "NalaResort?link=Bookings/Status";
+	},
+	"status" : {
+		"actionurl" : "booked-reference-id",
+		"load" : function(datas) {
+			if(datas.code == 1) {
+				var elem = document.getElementById(renderBookings["status"]["actionurl"]);
+				elem.innerText = datas.message;
+			}
+		},
+		"cab-booking" : {
+			"actionurl" : "cab-booking",
+			"action" : function() {
+				alert("Contact and cab details has sent to your mail, Please contact him to place the pick up time");
+			},
+			"navigate" : function() {
+				alert("no");
+				//document.location.href = "NalaResort?link=Bookings";
+			}
+		} 
 	}
 }
 
@@ -323,8 +459,14 @@ var renderCalendar = {
 			if(date !== null && month !== null && year !== null) {
 				if(document.getElementById(renderBookings["check-in"]["calendar"]["actionurl"]+"-container").style.display === "block") {
 					renderBookings["check-in"]["calendar"]["hide"]();
+					temp = renderBookings["check-in"]["value"];
 					renderBookings["check-in"]["value"] = new Date(year, month-1, date);
 					elem = document.getElementById(renderBookings["check-in"]["actionurl"]);
+					if(temp.length !== 0 && temp > renderBookings["check-in"]["value"]) {
+						renderCalendar["seturl"](renderBookings["check-out"]["calendar"]["actionurl"]+"-container", "booking-check-out-month_year-container", "booking-check-out-month-value", "booking-check-out-year-value", "booking-check-out-prev", "booking-check-out-next", "booking-check-out-date-container", "booking-check-out-date-value", "booking-check-out-ok-btn");
+						renderCalendar["month_year"]["load"](renderBookings["check-out"]["value"]);
+						renderCalendar["date"]["load"](renderBookings["check-out"]["value"], renderBookings["check-in"]["value"]);
+					}
 					elem.value = renderBookings["check-in"]["value"].toDateString();
 					if(renderBookings["check-out"]["value"] !== null && renderBookings["check-in"]["value"] > renderBookings["check-out"]["value"]) {
 						renderBookings["check-out"]["value"] = "null";
@@ -468,16 +610,52 @@ function loadEvents() {
 		});
 	}
 	
+	if(document.getElementById(renderBookings["check-in"]["actionurl"]+"-ok-btn") !== null) {
+		btn = document.getElementById(renderBookings["check-in"]["actionurl"]+"-ok-btn");
+		btn.addEventListener("click", function() {
+			renderBookings["room-no"]["get"]();
+			renderBookings["price"]["action"]();
+		});
+	}
+	
+	if(document.getElementById(renderBookings["check-out"]["actionurl"]) !== null) {
+		btn = document.getElementById(renderBookings["check-out"]["actionurl"]+"-ok-btn");
+		btn.addEventListener("click", function() {
+			renderBookings["room-no"]["get"]();
+			renderBookings["price"]["action"]();
+		});
+	}
+	
 	if(document.getElementById(renderBookings["floor-no"]["actionurl"]) !== null) {
 		AJAXRequest("GetFloorNo", renderBookings["floor-no"]["load"]);
 		btn = document.getElementById(renderBookings["floor-no"]["actionurl"]);
-		btn.addEventListener("change", renderBookings["floor-no"]["change"]);
+		btn.addEventListener("change", renderBookings["room-no"]["get"]);
 	}
 	
 	if(document.getElementById(renderBookings["room-type"]["actionurl"]) !== null) {
 		AJAXRequest("GetRoomType", renderBookings["room-type"]["load"]);
 		btn = document.getElementById(renderBookings["room-type"]["actionurl"]);
-		btn.addEventListener("change", renderBookings["room-type"]["change"]);
+		btn.addEventListener("change", function() {
+			renderBookings["room-no"]["get"]();
+			renderBookings["price"]["action"]();
+		});
+	}
+	
+	if(document.getElementById(renderBookings["price"]["actionurl"]) !== null) {
+		renderBookings["price"]["action"]();
+	}
+	
+	if(document.getElementById(renderBookings["actionurl"]) !== null) {
+		btn = document.getElementById(renderBookings["actionurl"]);
+		btn.addEventListener("click", renderBookings["action"]);
+	}
+	
+	if(document.getElementById(renderBookings["status"]["actionurl"]) !== null) {
+		AJAXRequest("GetReferenceID", renderBookings["status"]["load"]);
+		btn = document.getElementById(renderBookings["status"]["cab-booking"]["actionurl"]+"-yes");
+		btn.addEventListener("click", renderBookings["status"]["cab-booking"]["action"]);
+		btn = document.getElementById(renderBookings["status"]["cab-booking"]["actionurl"]+"-No");
+		btn.addEventListener("click", renderBookings["status"]["cab-booking"]["navigate"]);
 	}
 	
 }

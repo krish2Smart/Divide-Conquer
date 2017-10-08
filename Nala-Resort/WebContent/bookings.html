@@ -8,29 +8,29 @@
 			<li class = "booking-form-li"><label>Aadhar No</label><br>
 			<input type = "text" id = "booking-aadhar-no" class = "text-field-1"></li>
 			<li class = "booking-form-li"><label>Check In</label><br>
-			<input type = "text" id = "booking-check-in" class = "calendar-field" disabled="disabled"><a href = "#" class = "calendar-img" id = "booking-check-in-calendar"></a><br>
+			<input type = "date" id = "booking-check-in" class = "calendar-field" disabled = "disabled"><a href = "#" class = "calendar-img" id = "booking-check-in-calendar"></a><br>
 			<div class = "calendar-container" id = "booking-check-in-calendar-container" ></div></li>
 			<li class = "booking-form-li"><label>Check Out</label><br>
-			<input type = "text" id = "booking-check-out" class = "calendar-field" disabled="disabled"><a href = "#" id = "booking-check-out-calendar" class = "calendar-img"></a><br>
+			<input type = "date" id = "booking-check-out" class = "calendar-field" disabled = "disabled"><a href = "#" id = "booking-check-out-calendar" class = "calendar-img"></a><br>
 			<div class = "calendar-container" id = "booking-check-out-calendar-container"></div></li>
 			<li class = "booking-form-li"><label>Floor No</label><br>
-			<select id = "booking-floor-no" class = "select-field-1"><option disabled selected>Select</option></select></li>
+			<select id = "booking-floor-no" class = "select-field-1"><option>Select</option></select></li>
 			<li class = "booking-form-li"><label>Room Type</label><br>
-			<select id = "booking-room-type" class = "select-field-1"><option disabled selected>Select</option></select></li>
+			<select id = "booking-room-type" class = "select-field-1"><option>Select</option></select></li>
 			<li class = "booking-form-li"><label>Room No</label><br>
-			<select id = "booking-room-no" class = "select-field-1"><option disabled selected>Select</option></select></li>
+			<select id = "booking-room-no" class = "select-field-1"><option>Select</option></select></li>
 			<li class = "booking-form-li"><label>Services</label></li>
 			<li class = "booking-form-li"><input type = "checkbox" class = "booking-service" value = "dryCleaning">Dry<br><span style = "padding-left : 10px;">Cleaning</span></li>
 			<li class = "booking-form-li"><input type = "checkbox" class = "booking-service" value = "laundryFacilities">Laundry<br><span style = "padding-left : 10px;">Facilities</span></li>
-			<li class = "booking-form-li"><input type = "checkbox" class = "booking-service" value = "freeNewspapers">Free Newspapers<br><span style = "padding-left : 10px;">in Lobby</span></li>
+			<li class = "booking-form-li"><input type = "checkbox" class = "booking-service" value = "freeNewsPapers">Free Newspapers<br><span style = "padding-left : 10px;">in Lobby</span></li>
 			<li class = "booking-form-li"><label>Phone No</label><br>
 			<input type = "text" id = "booking-phone-no" class = "text-field-1"></li>
 			<li class = "booking-form-li"><label>Email ID</label><br>
 			<input type = "text" id = "booking-email-id" class = "text-field-1"></li>
 			<li class = "booking-form-li"><label>Amount Paid in Advance</label><br>
-			<input type = "text" id = "booking-amount-paid-in-advance" class = "text-field-1"></li>
-			<li class = "booking-form-li"><label>Amount</label><br>
-			<input type = "text" id = "booking-amount" class = "text-field-1"></li>
+			<input type = "text" id = "booking-amount-paid" class = "text-field-1"></li>
+			<li class = "booking-form-li"><label>Price</label><br>
+			<input type = "text" id = "booking-price" class = "text-field-1" disabled = "disabled"></li>
 		</ul>
 		<span id = "error-message"></span>
 		<span class = "submit"><input type = "submit" id = "booking-book" value = "Book"></span>
