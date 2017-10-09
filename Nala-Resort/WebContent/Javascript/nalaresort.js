@@ -11,6 +11,9 @@ var renderEvents = {
 	},
 	"cancellations" : {
 		"btn-url" : "cancellations-btn"
+	},
+	"management" : {
+		"btn-url" : "management-btn"
 	}
 } 
 
@@ -36,4 +39,11 @@ function loadUsers() {
 			document.location.href = "NalaResort?link=Cancellations";
 		});
 	}
+	if(document.getElementById(renderEvents["management"]["btn-url"]) !== null) {
+		btn = document.getElementById(renderEvents["management"]["btn-url"]);
+		btn.addEventListener("click", function() {
+			document.location.href = "NalaResort?link=Management";
+		});
+	}
 }
+

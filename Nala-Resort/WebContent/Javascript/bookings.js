@@ -113,7 +113,7 @@ var renderBookings = {
 		"load" : function(datas) {
 			var errMsg = document.getElementById("error-message");
 			var formContainer = document.getElementById("form-container");
-			alert(datas);
+
 			var HTMLContent = "<option>Select</option>";
 			if(datas.length == 0) {
 				HTMLContent += "<option>No rooms</option>";
@@ -250,8 +250,9 @@ var renderBookings = {
 		
 		
 		if(personName_flag === 1 && aadharNo_flag === 1 && checkIn_flag === 1 && checkOut_flag === 1 && floorNo_flag === 1 && roomType_flag === 1 && roomNo_flag === 1 && phoneNo_flag === 1 && emailId_flag === 1 && amountPaid_flag === 1 && price_flag === 1) {
-			errMsg.style.display = "none";
-			form.style.height = "410px";
+			errMsg.innerHTML = "Please wait, page is loading...";
+			errMsg.style.display = "inline-block";
+			form.style.height = "430px";
 			AJAXRequest("BookYourStay", renderBookings["navigate"], "person-name="+encodeURIComponent(personName)+"&aadhar-no="+encodeURIComponent(aadharNo)+"&check-in="+encodeURIComponent(checkIn)+"&check-out="+encodeURIComponent(checkOut)+"&floor-no="+encodeURIComponent(floorNo)+"&room-type="+encodeURIComponent(roomType)+"&room-no="+encodeURIComponent(roomNo)+"&dry-cleaning="+encodeURIComponent(dryCleaning)+"&laundry-facilities="+encodeURIComponent(laundryFacilities)+"&free-news-papers="+encodeURIComponent(freeNewsPapers)+"&phone-no="+encodeURIComponent(phoneNo)+"&email-id="+encodeURIComponent(emailId)+"&amount-paid="+encodeURIComponent(amountPaid)+"&price="+encodeURIComponent(price));
 		} else {
 			errMsg.style.display = "inline-block";
@@ -262,7 +263,7 @@ var renderBookings = {
 		document.location.href = "NalaResort?link=Bookings/Status";
 	},
 	"status" : {
-		"actionurl" : "booked-reference-id",
+		"actionurl" : "booking-reference-id",
 		"load" : function(datas) {
 			if(datas.code == 1) {
 				var elem = document.getElementById(renderBookings["status"]["actionurl"]);

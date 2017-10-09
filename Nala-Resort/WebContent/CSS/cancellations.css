@@ -1,0 +1,86 @@
+@CHARSET "ISO-8859-1";
+
+#cancellations-container {
+	display : block;
+}
+
+#cancellations-img {
+	position : absolute;
+	width : 1349px;
+	height : 550px;
+}
+
+#form-container {
+	position : absolute;
+	top : 250px;
+	left : 200px;
+	height :210px;
+	width : 410px;
+	background-color : white;
+	border-top : 3px solid rgb(80,182,230);
+}
+
+#Cancellations-title {
+	position : absolute;
+	z-index : 1;
+	top : 200px;
+	left : 190px;
+	width : 410px;
+	text-align : center;
+	padding : 10px;
+	font-family : Times New Roman;
+	font-size : 35px;
+	color : white;
+}
+
+#cancellations-form-ul {
+	list-style-type : none;
+	padding : 10px;
+	margin : 0px;
+}
+
+.cancellations-form-li {
+	padding : 5px 17px;
+}
+
+.cancellations-form-li label {
+	color : #666;
+}
+
+.cancellations-form-li input[type="text"]{
+	width : 350px;
+}
+
+#cancellations-send-otp {
+	width : 355px;
+	height : 30px;
+	background-color : rgb(255, 50, 90);
+	border : 0px;
+	color : white;
+}
+
+#cancellations-otp {
+	width : 250px;
+}
+
+#cancellations-submit-otp {
+	width : 90px;
+	height : 30px;
+	background-color : rgb(255, 50, 90);
+	border : 0px;
+	color : white;
+}
+
+#error-message-1, #error-message-2 {
+	text-align : center;
+	width : 350px;
+	height : 20px;
+	color : rgb(255, 50, 90);
+}
+
+#display-message {
+	text-align : center;
+	width : 350px;
+	height : 20px;
+	color : rgb(80,182,230);
+}

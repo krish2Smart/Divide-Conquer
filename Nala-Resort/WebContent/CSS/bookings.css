@@ -2,7 +2,6 @@
 
 #bookings-container {
 	display : block;
-	clear : both;
 }
 
 #booking-img {
@@ -33,13 +32,13 @@
 	border-top : 3px solid rgb(80,182,230);
 }
 
-#form-container .booking-form-ul {
+.booking-form-ul {
 	list-style-type : none;
 	padding : 0px;
 	margin : 0px;
 }
 
-#form-container .booking-form-ul .booking-form-li{
+.booking-form-li{
 	float : left;
 	color : #666;
 	padding : 5px 11px 5px 25px;

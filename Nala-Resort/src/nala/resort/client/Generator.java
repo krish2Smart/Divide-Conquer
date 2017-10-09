@@ -5,7 +5,7 @@ import java.util.Random;
 public abstract class Generator {
 	protected int length = 0;
 	protected String values = null;
-	protected String reference = null;
+	protected String reference = "";
 	
 	protected abstract void setDataMembers();
 	public String getGeneratedValues() {

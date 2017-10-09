@@ -15,16 +15,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 /**
- * Servlet implementation class GetReferenceID
+ * Servlet implementation class CheckCookie
  */
-@WebServlet("/GetReferenceID")
-public class GetReferenceID extends HttpServlet {
+@WebServlet("/CheckCookie")
+public class CheckCookie extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetReferenceID() {
+    public CheckCookie() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,26 +34,27 @@ public class GetReferenceID extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("application/json");
 		try(PrintWriter out = response.getWriter()) {
-			String referenceID = null;
-			boolean exist = false;
-			Map<String, String> li = new TreeMap<String, String>();
+			response.setContentType("application/json");
+			String user = "";
+			boolean isLogged = false;
 			if(request.getCookies() != null) {
-				Cookie[] cks = request.getCookies();
-				for(int i = 0; i < cks.length;i++) {
-					if(cks[i].getName().equals("referenceID")) {
-						exist = true;
-						referenceID = cks[i].getValue();
+				Cookie cks[] = request.getCookies();
+				for(int i = 0; i < cks.length; i++) {
+					if(cks[i].getName().equals("nala_resort")) {
+						isLogged = true;
+						user = cks[i].getValue();
+						break;
 					}
 				}
-			} 
-			if(exist) {
+			}
+			Map<String, String> li = new TreeMap<String, String>();
+			if(isLogged) {
 				li.put("code", "1");
-				li.put("message", referenceID);
+				li.put("username", user);
 			} else {
 				li.put("code", "0");
-				li.put("message", "Not available");
+				li.put("message", "Please log in");
 			}
 			out.println(new Gson().toJson(li));
 			out.flush();

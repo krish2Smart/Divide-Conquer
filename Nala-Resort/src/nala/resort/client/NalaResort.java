@@ -49,13 +49,21 @@ public class NalaResort extends HttpServlet {
 					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/calendar.css\">");
 					out.println("<script type = \"text/javascript\" src = \"Javascript/bookings.js\"></script>");
 				} else if(link.equals("Bookings/Status")) {
-					out.println("<title>Nala Resort | Bookings</title>");
+					out.println("<title>Nala Resort | Booking Status</title>");
 					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/bookingstatus.css\">");
 					out.println("<script type = \"text/javascript\" src = \"Javascript/bookings.js\"></script>");
 				} else if(link.equals("Cancellations")) {
 					out.println("<title>Nala Resort | Cancellations</title>");
 					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/cancellations.css\">");
 					out.println("<script type = \"text/javascript\" src = \"Javascript/cancellations.js\"></script>");
+				} else if(link.equals("Management")) {
+					out.println("<title>Nala Resort | Management</title>");
+					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/management.css\">");
+					out.println("<script type = \"text/javascript\" src = \"Javascript/management.js\"></script>");
+				} else if(link.equals("Management/Stay-Details")) {
+					out.println("<title>Nala Resort | Management Stay Details</title>");
+					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/staydetails.css\">");
+					out.println("<script type = \"text/javascript\" src = \"Javascript/management.js\"></script>");
 				}
 				out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/nalaresort.css\">");
 				out.println("<script type = \"text/javascript\" src = \"Javascript/nalaresort.js\"></script>");
@@ -69,8 +77,12 @@ public class NalaResort extends HttpServlet {
 					request.getRequestDispatcher("bookings.html").include(request, response);
 				} else if(link.equals("Bookings/Status")){
 					request.getRequestDispatcher("bookingstatus.html").include(request, response);
-				} else if(link.equals("CheckOTP")) {
-					request.getRequestDispatcher("checkotp.html").include(request, response);
+				}  else if(link.equals("Cancellations")){
+					request.getRequestDispatcher("cancellations.html").include(request, response);
+				} else if(link.equals("Management")) {
+					request.getRequestDispatcher("management.html").include(request, response);
+				} else if(link.equals("Management/Stay-Details")) {
+					request.getRequestDispatcher("staydetails.html").include(request, response);
 				}
 			out.println("</body>");
 			out.println("</html>");

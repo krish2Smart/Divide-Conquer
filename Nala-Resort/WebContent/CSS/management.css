@@ -1,0 +1,72 @@
+@CHARSET "ISO-8859-1";
+
+#management-container {
+	display : block;
+}
+
+#management-img {
+	position : absolute;
+	width : 1349px;
+	height : 550px;
+}
+
+#management-title {
+	position : absolute;
+	z-index : 1;
+	top : 200px;
+	left : 190px;
+	width : 410px;
+	text-align : center;
+	padding : 10px;
+	font-family : Times New Roman;
+	font-size : 35px;
+	color : white;
+}
+
+#form-container {
+	position : absolute;
+	top : 250px;
+	left : 200px;
+	height :200px;
+	width : 410px;
+	background-color : white;
+	border-top : 3px solid rgb(80,182,230);
+}
+
+#management-form-ul {
+	list-style-type : none;
+	padding : 10px;
+	margin : 0px;
+}
+
+.management-form-li {
+	padding : 5px 17px;
+}
+
+.management-form-li label {
+	color : #666;
+}
+
+.management-form-li input[type="text"]{
+	width : 350px;
+}
+
+#management-login-btn {
+	width : 355px;
+	height : 30px;
+	background-color : rgb(255, 50, 90);
+	border : 0px;
+	color : white;
+}
+
+#error-message {
+	text-align : center;
+	width : 350px;
+	height : 20px;
+	color : rgb(255, 50, 90);
+}
+
+#management-note {
+	text-align : center;
+	color :rgb(80,182,230);
+}

@@ -75,8 +75,10 @@ public class BookYourStay extends HttpServlet {
 				ps.setFloat(12, price);
 				ps.setString(13, referenceID);
 				ps.executeUpdate();
+				SendMail sd = new SendMail("Booking Reference ID : "+referenceID, "Nala Resort - Booking Reference ID", emailId);
+				sd.send();
 				Cookie cookie = new Cookie("referenceID", referenceID);
-				cookie.setMaxAge(60*60*24);
+				cookie.setMaxAge(60*60);
 				response.addCookie(cookie);
 				LinkedList<String> list = new LinkedList<String>();
 				list.add(referenceID);
