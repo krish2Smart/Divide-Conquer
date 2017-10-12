@@ -5,7 +5,7 @@
 	margin-top : 150px;
 	margin-left : 300px;
 	width : 700px;
-	height : 200px;
+	height : 220px;
 	text-align : center;
 	border-radius : 10px;
 }
@@ -27,3 +27,10 @@
 	border : 0px;
 }
 
+#display-message {
+	text-align : center;
+	margin : 40px 0px;
+	width : 700px;
+	height : 20px;
+	color : rgb(80,182,230);
+}

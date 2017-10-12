@@ -2,11 +2,13 @@
 
 #bookings-container {
 	display : block;
+	height : 820px;
 }
 
 #booking-img {
 	position : absolute;
 	width : 1349px;
+	height : 800px;
 }
 
 #booking-title {

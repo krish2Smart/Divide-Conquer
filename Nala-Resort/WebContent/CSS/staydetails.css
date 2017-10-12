@@ -1,8 +1,13 @@
 @CHARSET "ISO-8859-1";
 
+#stay-details-content-holder {
+	position : relative;
+	min-height : 600px;	
+}
+
 #stay-details-container {
-	margin : 20px 100px;
-	width : 1149px;
+	margin : 40px 200px;
+	width : 949px;
 }
 
 #stay-details-title {
@@ -18,7 +23,7 @@
 .stay-details-tbl {
 	margin : 20px 0px;
 	border-collapse : collapse;
-	width : 1149px;
+	width : 949px;
 }
 
 .stay-details-tbl td:first-child {
@@ -41,3 +46,44 @@
 .stay-details-tbl tr:nth-child(even) a {
 	color : black;
 }
+
+.display-content {
+	display : block;
+	width : 949px;
+	height : 180px;
+	text-align : center;
+	width : 500px; 
+	padding-left : 220px;
+}
+
+.display-content ul {
+	list-style-type : none;
+	margin : 0px;
+}
+
+.display-content ul li {
+	float : left;
+	height : 40px;
+	padding-left : 20px;
+}
+
+#display-services {
+	display : block;
+	padding-left : 280px;
+}
+
+#stay-details-logout {
+	width : 100px;
+	position : absolute;
+	right : 50px;
+	top : -20px;
+}
+
+#stay-details-logout-btn {
+	width : 80px;
+	height : 25px;
+	color : white;
+	background-color : rgb(255, 50, 90);
+	border : 0px;
+}
+

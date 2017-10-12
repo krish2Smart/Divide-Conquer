@@ -2,6 +2,7 @@
 
 #management-container {
 	display : block;
+	height : 550px;
 }
 
 #management-img {
@@ -47,7 +48,7 @@
 	color : #666;
 }
 
-.management-form-li input[type="text"]{
+.management-form-li input[type="text"], .management-form-li input[type="password"]{
 	width : 350px;
 }
 
