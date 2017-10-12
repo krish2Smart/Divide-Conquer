@@ -13,8 +13,8 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.Authenticator;
 
 public class SendMail {
-	String user="krishragul143@gmail.com";
-	String pass="a@laporantham!zhan";
+	String user = "nala.customercare@gmail.com";
+	String pass = "nalaresortcustomer";
 	String text, subject, to; 
 
 	public SendMail(String text, String subject, String to) {

@@ -53,7 +53,7 @@ public class CheckOTP extends HttpServlet {
 					if(rs1.next()) {
 						SendMail sd = new SendMail("Hi "+rs1.getString(1)+", we have cancelled your stay as you requested. Our customer support will contact you for refund of advance payment. For any queries, please contact our customer support team.", "Nala Resort - Stay Cancelled", rs1.getString(3));
 						sd.send();
-						sd = new SendMail("Hi our customer,"+rs1.getString(1)+" who booked their stay has cancelled as they requested. As our duty to contact them and ask the bank details to refund their advance payment.Advance amount paid is "+rs1.getString(4)+".Contact Number : "+rs1.getString(2), "Stay Cancelled", "krishragul143@gmail.com");
+						sd = new SendMail("Hi our customer,"+rs1.getString(1)+" who booked their stay has cancelled as they requested. As our duty to contact them and ask the bank details to refund their advance payment.Advance amount paid is "+rs1.getString(4)+".Contact Number : "+rs1.getString(2), "Stay Cancelled", "nala.customercare@gmail.com");
 						sd.send();
 					}
 					ps1 = Database.getStmt("delete from occupancy_details where reference_id = ?");

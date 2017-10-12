@@ -41,8 +41,9 @@ public class NalaResort extends HttpServlet {
 			out.println("<head>");
 				if(link.equals("Home")) {
 					out.println("<title>Nala Resort | Home</title>");
+					out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
 					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/home.css\">");
-					out.println("<script type = \"text/javascript\" src = \"Javascript/home.js\"></script>");
+					out.println("<script type = \"text/javascript\" src = \"Javascript/home.js\"></script>");					
 				} else if(link.equals("Bookings")) {
 					out.println("<title>Nala Resort | Bookings</title>");
 					out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/bookings.css\">");
@@ -66,6 +67,7 @@ public class NalaResort extends HttpServlet {
 					out.println("<script type = \"text/javascript\" src = \"Javascript/management.js\"></script>");
 				}
 				out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/nalaresort.css\">");
+				out.println("<link type = \"text/css\" rel = \"stylesheet\" href = \"CSS/footer.css\">");
 				out.println("<script type = \"text/javascript\" src = \"Javascript/nalaresort.js\"></script>");
 			out.println("</head>");
 			out.println("<body>");
@@ -84,6 +86,7 @@ public class NalaResort extends HttpServlet {
 				} else if(link.equals("Management/Stay-Details")) {
 					request.getRequestDispatcher("staydetails.html").include(request, response);
 				}
+				request.getRequestDispatcher("footer.html").include(request, response);
 			out.println("</body>");
 			out.println("</html>");
 		}	

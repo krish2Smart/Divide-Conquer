@@ -1,3 +1,7 @@
+create database resort;
+
+use resort;
+
 create table room_details(room_no int, floor_no int, room_type varchar(256), price float);
 
 	insert into room_details values(101, 1, "Standard", 1000);
@@ -21,9 +25,20 @@ create table room_details(room_no int, floor_no int, room_type varchar(256), pri
 	insert into room_details values(404, 4, "Ultra Delux", 2500);
 	insert into room_details values(405, 4, "Standard", 1000);
 
+create table cab_details(id int auto_increment, driver_name varchar(256), phone_no varchar(15), primary key(id));
+
+	insert into cab_details (driver_name, phone_no) values('ragul', '9542876120');
+	insert into cab_details (driver_name, phone_no) values('nandha', '9542876121');
+	insert into cab_details (driver_name, phone_no) values('obuli', '9542876122');
+	insert into cab_details (driver_name, phone_no) values('Saravana', '9542876123');
+	insert into cab_details (driver_name, phone_no) values('Shilfan', '9542876124');
+	insert into cab_details (driver_name, phone_no) values('Sudhakar', '9542876125');
+	insert into cab_details (driver_name, phone_no) values('Somanath', '9542876126');
+	insert into cab_details (driver_name, phone_no) values('Jeeva', '9542876127');
+
 create table occupancy_details(id int auto_increment, person_name varchar(256), aadhar_no varchar(25), check_in date, check_out date, phone_no varchar(15), mail_id varchar(256), room_no int, dry_cleaning tinyint(1), laundry_facilities tinyint(1), free_newspapers tinyint(1), amount_paid float, price float, reference_id varchar(256), booked_at timestamp, primary key(id));
 
-create table cab_details(id int auto_increment, cab_no varchar(15), driver_contact_no varchar(15), booked_person varchar(256), occupancy_details_id int, primary key(id));
+create table cab_allocation(id int auto_increment, driver_id int, booked_date date, booked_person varchar(256), reference_id varchar(256), primary key(id));
 
 create table otp_datas(reference_id varchar(256), otp varchar(256), created_at datetime);
 
@@ -33,9 +48,11 @@ create table management_login(username varchar(50), password varchar(50));
 
 SET GLOBAL event_scheduler = ON;
 
-CREATE EVENT `booking_cleaner_event` ON SCHEDULE EVERY 24 HOUR STARTS '2017-10-10 00:00:00' COMMENT 'Clean up bookings at 00:00 daily!' DO DELETE FROM occupancy_details where curdate() > check_out;
+create event `booking_cleaner_event` on schedule every 24 hour starts '2017-10-10 00:00:00' comment 'Clean up bookings at 00:00 daily!' do delete from occupancy_details where curdate() > check_out;
 
 create event `otp_cleaner_event` on schedule every 1 minute comment 'Clean up OTP after 5 minutes of its creation' do delete from otp_datas where now() > created_at + interval 5 minute; 
 
-insert into occupancy_details(person_name, aadhar_no, check_in, check_out, phone_no, mail_id, room_no, dry_cleaning, laundry_facilities, free_newspapers, amount_paid, price, reference_id, booked_at) values('ragul', '123456789123', '2017-10-06', '2017-10-07', '7373413841', 'krishragul143@gmail.com', 204, 0, 0, 0, 2000, 8000, 'Nala@FGvf12165', now());
+create event `cab_allocation_cleaning_event` on schedule every 24 hour starts '2017-10-11 00:00:00' comment 'Clean up cab allocation at 00:00 daily!' do delete from cab_allocation where curdate() > booked_date;
+
+
 

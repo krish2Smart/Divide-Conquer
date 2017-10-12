@@ -15,16 +15,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 /**
- * Servlet implementation class GetReferenceID
+ * Servlet implementation class Logout
  */
-@WebServlet("/GetReferenceID")
-public class GetReferenceID extends HttpServlet {
+@WebServlet("/Logout")
+public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetReferenceID() {
+    public Logout() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,26 +34,28 @@ public class GetReferenceID extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("application/json");
 		try(PrintWriter out = response.getWriter()) {
-			String referenceID = null;
-			boolean exist = false;
+			response.setContentType("application/json");
+			boolean isDeleted = false;
 			Map<String, String> li = new TreeMap<String, String>();
 			if(request.getCookies() != null) {
-				Cookie[] cks = request.getCookies();
-				for(int i = 0; i < cks.length;i++) {
-					if(cks[i].getName().equals("referenceID")) {
-						exist = true;
-						referenceID = cks[i].getValue();
+				Cookie cks[] = request.getCookies();
+				for(int i = 0; i < cks.length; i++) {
+					if(cks[i].getName().equals("nala_resort")) {
+						cks[i].setValue(null);
+						cks[i].setMaxAge(0);
+						response.addCookie(cks[i]);
+						isDeleted = true;
+						break;
 					}
 				}
-			} 
-			if(exist) {
+			}
+			if(isDeleted) {
 				li.put("code", "1");
-				li.put("message", referenceID);
+				li.put("message", "Deleted");
 			} else {
 				li.put("code", "0");
-				li.put("message", "not available");
+				li.put("message", "Not deleted");
 			}
 			out.println(new Gson().toJson(li));
 			out.flush();
