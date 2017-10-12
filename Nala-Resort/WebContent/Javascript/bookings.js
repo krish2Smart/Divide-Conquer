@@ -71,7 +71,12 @@ var renderBookings = {
 			var HTMLContent = "<option>Select</option>";;
 			var i;
 			for(i = 0; i < datas.length; i++) {
-				HTMLContent += "<option>"+datas[i]+"</option>";
+				if(datas[i] == "Ultra Delux")
+					HTMLContent += "<option value = \"Ultra Delux\">Ultra Deluxe</option>";
+				else if(datas[i] == "Delux")
+					HTMLContent += "<option value = \"Delux\">Deluxe</option>";
+				else
+					HTMLContent += "<option>"+datas[i]+"</option>";
 			}
 			var elem = document.getElementById(renderBookings["room-type"]["actionurl"]);
 			elem.innerHTML = HTMLContent;
@@ -84,7 +89,7 @@ var renderBookings = {
 			var checkOut = document.getElementById(renderBookings["check-out"]["actionurl"]).value;
 			var floorNo = document.getElementById(renderBookings["floor-no"]["actionurl"]).value;
 			var roomType = document.getElementById(renderBookings["room-type"]["actionurl"]).value;
-			
+
 			var errMsg = document.getElementById("error-message");
 			var formContainer = document.getElementById("form-container");
 			
@@ -272,12 +277,22 @@ var renderBookings = {
 		},
 		"cab-booking" : {
 			"actionurl" : "cab-booking",
+			"message" : function(datas) {
+				var disMsg = document.getElementById("display-message");
+				disMsg.innerHTML = datas.message;
+				disMsg.style.display = "block";
+				var elem = document.getElementById(renderBookings["status"]["cab-booking"]["actionurl"]+"-holder");
+				elem.style.display = "none";
+			},
 			"action" : function() {
-				alert("Contact and cab details has sent to your mail, Please contact him to place the pick up time");
+				var disMsg = document.getElementById("display-message");
+				disMsg.innerText = "Please wait, page is loading";
+				disMsg.style.display = "block";
+				var bookingReferenceID = document.getElementById(renderBookings["status"]["actionurl"]).innerText;
+				AJAXRequest("CabBooking", renderBookings["status"]["cab-booking"]["message"], "booking-reference-id="+bookingReferenceID);
 			},
 			"navigate" : function() {
-				alert("no");
-				//document.location.href = "NalaResort?link=Bookings";
+					document.location.href = "NalaResort?link=Bookings";
 			}
 		} 
 	}
