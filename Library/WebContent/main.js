@@ -12,7 +12,7 @@
     	window.alert("upgrade your browser!");
     	}
     	var req = new XMLHttpRequest();
-    	req.open( "POST" , "HTML/"+sessionStorage.name+".html" , true )
+    	req.open( "POST" , "HTML/"+sessionStorage.name+".html" , true);
     	req.send();
     	req.onreadystatechange = function(){
     		if(this.readyState == 4 && this.status == 200 )
@@ -20,6 +20,14 @@
     				var htmlContent = this.responseText;
     				document.getElementById("content-holder").innerHTML = htmlContent ;
     				document.getElementById("title").innerHTML = "<title>Library-"+sessionStorage.name+"</title>";
+    				var xhr = new XMLHttpRequest();
+    				xhr.open("POST", "Home", true);
+    				xhr.send();
+    				xhr.onreadystatechange = function() {
+    					if(this.readyState == 4 && this.status == 200) {
+    						document.getElementById("home-content").innerHTML = JSON.parse(this.responseText).message;
+    					}
+    				}
     			}
     	};
     	if(sessionStorage.name == "Downloads")
@@ -513,12 +521,12 @@ function insertSemSyll()
 	var obj=JSON.parse(jsonobj);
 	if(obj[depart]=="B.E")
 	{
-	semester="<option>--</option><option>I,II</option><option>III,IV</option>";
-	semester+="<option>V,VI</option><option>VII,VII</option>";
+		semester="<option>--</option><option>I,II</option><option>III,IV</option>";
+		semester+="<option>V,VI</option><option>VII,VII</option>";
 	}
 	else
 	{
-	semester="<option>--</option><option>I,II</option><option>III,IV</option>";
+		semester="<option>--</option><option>I,II</option><option>III,IV</option>";
 	}
 	document.getElementById("semester").innerHTML=semester;
-	}
+}
