@@ -44,14 +44,14 @@ public class CreateFile extends HttpServlet {
 		if(fileName.contains(".PDF")) {
 			fileName = fileName.replace(".PDF",".pdf");
 		}
-//        String savePath = "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.0\\webapps\\Library\\"+format+"\\"+path;
-		String savePath = "C:\\Users\\Krish\\Divide&Conquer\\Library\\WebContent\\"+format+"\\"+path;
+        String savePath = "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.0\\webapps\\Library\\"+format+"\\"+path;
+		//String savePath = "C:\\Users\\Krish\\Divide&Conquer\\Library\\WebContent\\"+format+"\\"+path;
         System.out.println(fileName);
 		File fileSaveDir=new File(savePath);
         if(!fileSaveDir.exists()){
             fileSaveDir.mkdir();
         }
-        InputStream in=null;
+        InputStream in = null;
         if(part!=null){
             in=part.getInputStream();
         }

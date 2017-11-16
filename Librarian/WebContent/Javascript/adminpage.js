@@ -756,6 +756,14 @@ var renderHTML = {
 		"actionurl" : "settings",
 		"change-home-content" : {
 			"actionurl" : "change-home-content",
+			"load" : function(datas) {
+				if(datas.code == 1) {
+					var elem = document.getElementById("content");
+					elem.innerText = datas.message;
+				} else {
+					alert("DB Connection Problem");
+				}
+			},
 			"navigate" : function(datas) {
 				if(datas.code == 1) {
 					alert(datas.message);
@@ -1348,6 +1356,7 @@ function loadUsers(datas) {
 		if(document.getElementById(renderHTML["settings"]["change-home-content"]["actionurl"]+"-sub") !== null) {
 			btn = document.getElementById(renderHTML["settings"]["change-home-content"]["actionurl"]+"-sub");
 			btn.addEventListener("click", renderHTML["settings"]["change-home-content"]["action"]);
+			AJAXRequest("GetHomeContent", renderHTML["settings"]["change-home-content"]["load"]);
 		}
 		if(document.getElementById("changeuser-btn") !== null) {
 			btn = document.getElementById("changeuser-btn");
